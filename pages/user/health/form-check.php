@@ -1,6 +1,6 @@
 <?php 
-session_start(); 
-include "db_conn.php";
+
+include "config.php";
 
 	if($_POST['fever']!='Yes')
 		$_POST['fever']='No';
