@@ -9,8 +9,7 @@
 		die("Connection failed: ". $conn->connect_error);	//die = exit , . utk joined
 	}
 	else{
-	//echo "<script>alert('Database connected successfully')</script>";
-	mysqli_select_db($conn,'');
+	echo "<script>alert('Database connected successfully')</script>";
 	}	
 //require once file.php call file
 ?>
