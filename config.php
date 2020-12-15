@@ -2,8 +2,8 @@
 	$servername = "localhost";
 	$username = "admin";
 	$password = "123";
-
-	$conn = new mysqli($servername, $username, $password);	//connect database
+	$database = "ReqNGo";
+	$conn = new mysqli($servername, $username, $password, $database);	//connect database
 
 	if($conn ->connect_error){
 		die("Connection failed: ". $conn->connect_error);	//die = exit , . utk joined
