@@ -95,6 +95,7 @@ button:hover {
 h1 {
   text-align: center;
   color: #fff;
+  font-family: roboto;
 }
 
 .ca {
@@ -137,5 +138,29 @@ h1 {
 .auth {
   background: transparent;
   border: 2px solid #fff;
+}
+
+button a {
   color: #fff;
+  text-decoration: none;
+}
+
+#welcome {
+  position: relative;
+  width: 465px;
+  height: 105px;
+  margin-left: 0px;
+  margin-top: 149px;
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 43.5px;
+  line-height: 112px;
+
+  color: #ffffff;
+}
+
+@font-face {
+  font-family: roboto;
+  src: url(Roboto-Regular.ttf);
 }
