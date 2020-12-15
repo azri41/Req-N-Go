@@ -12,7 +12,7 @@
 
 </head>
 <body>
-     <form action="signup-check.php" method="post">
+     <form action="form-check.php" method="post">
      	<h2>Health Status Form</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
