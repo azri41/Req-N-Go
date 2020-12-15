@@ -21,14 +21,14 @@ $username=$_SESSION['username'];
 </head>
 <body>
 <header>
-<h1>Azure Car Rental</h1>
 <a href="index.php">
-        <img src="img/logo.png" alt="logo">
+        <img src="img/Logo.png" alt="logo">
     </a>
     <nav>
     <div class="wrapper">
         <ul>
-            <li class="active"><a href="AdminMain.php">REQUEST</a></li>
+            <li class="active"><a href="pages/admin/AdminMain.php">HOME</a></li>
+            <li class="active"><a href="pages/admin/view/view-request.php">REQUEST</a></li>
             <li><a href="pages/admin/history/history-main.php">HISTORY</a></li>
             <li><a href="pages/admin/analysis/analysis.php">ANALYSIS</a></li>
 
@@ -42,7 +42,7 @@ $username=$_SESSION['username'];
     <h2>Welcome , <?php echo $username ?> !</h2>
     </div><br><br><br><br><br><br>
     <div class="display">
-
+    <p>This is Admin page</p>
     <footer>
     <p>Phone : 06-231 4133 </p>
     <p>Email : reqngo@gmail.com </p>
