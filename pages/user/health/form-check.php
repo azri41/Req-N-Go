@@ -36,26 +36,26 @@ if (isset($_POST['area']) && isset($_POST['fever']) && isset($_POST['breath']) &
 	}
 
 	if (empty($area)) {
-		header("Location: signup.php?error1=Question No.1 is required");
+		header("Location: form.php?error1=Question No.1 is required");
 	    exit();
 	}
 	else if(empty($contact)){
-        header("Location: signup.php?error2=Question No.3 is required");
+        header("Location: form.php?error2=Question No.3 is required");
 	    exit();
 	}
 	else{
         $sql = "INSERT INTO health (IsFever, IsCough, IsSore_Throat, IsDifficult_Breath, OtherSymtoms, CloseContact, IsRed_Area, Health_Status) VALUES ('$fever', '$cough', '$throat', '$breath', '$symtoms', '$contact', '$area', '$status')";
 		$result = mysqli_query($conn, $sql);
         if ($result) {
-    		header("Location: signup.php?success=The form already sumbit. Thank you!");
+    		header("Location: form.php?success=The form already sumbit. Thank you!");
 	        exit();
         }else {
-	        header("Location: signup.php?error=unknown error occurred");
+	        header("Location: form.php?error=unknown error occurred");
 		    exit();
         }
 	}
 	
 }else{
-	header("Location: signup.php?error=Incomplete Input. Please answer question 1 and 3.");
+	header("Location: form.php?error=Incomplete Input. Please answer question 1 and 3.");
 	exit();
 }
