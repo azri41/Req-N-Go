@@ -2,7 +2,7 @@
 	$servername = "localhost";
 	$username = "admin";
 	$password = "123";
-	$database = "ReqNGo";
+	$database = "reqngo";
 	$conn = new mysqli($servername, $username, $password, $database);	//connect database
 
 	if($conn ->connect_error){
