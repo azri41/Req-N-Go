@@ -1,5 +1,6 @@
 <?php
-
+require "config.php";
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,16 +18,16 @@
     <header>
 
         <a href="index.php">
-            <img src="img/logo-invert.png" alt="logo">
+            <img id="logo_index" src="img/logo-invert.png" alt="logo">
         </a>
 
         <nav>
             <div class="header-input">
                 <?php
                 if (isset($_SESSION['usertype'])) {
-                    echo '<button><a href="Logout.php">Logout</a></button>';
+                    echo '<button><a href="pages/auth/login.php">Logout</a></button>';
                 } else {
-                    echo '<button class="auth"><a href="Login.php">Login</a></button>
+                    echo '<button class="auth"><a href="pages/auth/login.php">Login</a></button>
                         <button class="auth"><a href="RegisterCustomer.php">Register</a></button>';
                 }
 
@@ -61,14 +62,16 @@
         </div>
         <div>
             <h1 id="welcome">WELCOME</h1>
+            <h2 id="description">Req N Go is a website that</h2>
+            <h2 id="description"> help you to apply for</h2>
+            <h2 id="description"> crossing the state easily.</h2>
         </div>
+        <side>
+            <img id="malaysia" src="img/malaysia.png">
+        </side>
 
     </main>
 </body>
-<br><br><br><br>
-<footer class="index">
-    <p>Phone : 06-231 4133 </p>
-    <p>Email : @gmail.com </p>
-</footer>
+
 
 </html>

@@ -1,0 +1,33 @@
+/* LOGIN.PHP */
+#rectangle {
+  position: absolute;
+  width: 580px;
+  height: 835px;
+  left: calc(50% - 580px / 2 + 477px);
+  top: calc(50% - 835px / 2 - 37px);
+
+  background: #011e34;
+  border-radius: 50px;
+}
+#logo_login {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 61px;
+  top: 12px;
+}
+#login {
+  position: absolute;
+  width: 277px;
+  height: 111px;
+  left: 91px;
+  top: 90px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 84px;
+
+  color: #000000;
+}
