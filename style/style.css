@@ -127,6 +127,11 @@ h1 {
   color: white;
 }
 
+.formreq{
+	margin-left: auto; 
+	margin-right: auto;
+}
+
 .index {
   color: #fff;
 }
@@ -163,4 +168,71 @@ button a {
 @font-face {
   font-family: roboto;
   src: url(Roboto-Regular.ttf);
+}
+
+.search-container {
+	float: right;
+	width:100px;
+  }
+
+.search-container button{
+	float: right;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+	width:100px;
+  }
+
+  .search-container button:hover {
+  background: #ccc;
+  width:100px;
+}
+
+input[type=text] {
+	width: 200px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 6px;
+	font-size: 14px;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+	margin-right: 5px;
+  }
+
+  .border{
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+  }
+  .col{
+	background-color: #7677c0;
+	border: 2px solid #020202;
+	text-align: left;
+	padding: 8px;
+  }
+
+  td {
+	border: 2px solid black;
+	background-color: #d0d1df;
+	padding: 8px;
+	text-align: center;
+}
+
+.searchbar{
+	/* border: 2px solid black; */
+    margin-right: 0%;
+}
+
+.searchcontainer{
+	/* border: 2px solid black; */
+	margin-left: 26%;
+}
+
+.searchcontainerrequest{
+	text-align:center; 
+	width:80%;
 }
