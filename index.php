@@ -21,6 +21,7 @@ session_start();
             <img id="logo_index" src="img/logo-invert.png" alt="logo">
         </a>
 
+
         <nav>
             <div class="header-input">
                 <?php
@@ -28,7 +29,7 @@ session_start();
                     echo '<button><a href="pages/auth/login.php">Logout</a></button>';
                 } else {
                     echo '<button class="auth"><a href="pages/auth/login.php">Login</a></button>
-                        <button class="auth"><a href="RegisterCustomer.php">Register</a></button>';
+                        <button class="auth"><a href="pages/auth/register.php">Register</a></button>';
                 }
 
                 ?>
