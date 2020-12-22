@@ -7,8 +7,7 @@
         }
         .formsheet{
             width: 1000px;
-            height:550px;
-            border: 2px solid #ccc;
+            height:550px; 
             padding: 30px;
             background: #fff;
             border-radius: 15px;
@@ -33,14 +32,27 @@
             padding: 10px;
             width: 70%;
             border-radius: 16px;
-            background-color: pink; 
+            background-color: #dde7ee; 
             color: black; 
-            border: 2px solid #4CAF51;
+            border: 2px solid #5182A6;
         }
         .btn:hover {
-            background-color: #4CAF50;
+            background-color: #87abc4;
             color: white;
         }
+        .btn1{
+            padding: 10px;
+            width: 70%;
+            border-radius: 16px;
+            background-color: #fce9e9; 
+            color: black; 
+            border: 2px solid #e96363;
+        }
+        .btn1:hover {
+            background-color: #f2a6a6;
+            color: white;
+        }
+
     </style>
     <script type="text/javascript">
      function myConfirm(){
@@ -94,7 +106,7 @@
         <table style="margin-left:30%;width: 50%;">
             <tr>
                 <td><button class="btn" name='update' type="submit" onClick="myConfirm() ">Update</button></td>
-                <td><button class="btn" name='logout' type="submit" >Logout</button></td>
+                <td><button class="btn1" name='logout' type="submit" >Logout</button></td>
             </tr>
         </table>
 
