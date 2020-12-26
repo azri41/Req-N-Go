@@ -9,7 +9,7 @@
 </head>
 <body class="aboutus">
     <br><br>
-<img src="background.png" alt="Nature" style="width:100%;">
+<img src="img/background.png" alt="Nature" style="width:100%;">
 <br>
 
     <table style="height=100%;">
