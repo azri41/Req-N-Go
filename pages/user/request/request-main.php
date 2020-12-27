@@ -77,7 +77,7 @@ form{
 <li><img src="Logo.png" alt="Logo.png" style="width:50px;height:50px;"></li>
 <div class="navRight">
   <li><a href="#home">HEALTH STATUS</a></li>
-  <li><a href="#request">REQUEST</a></li>
+  <li style="background-color: beige;"><a href="#request">REQUEST</a></li>
   <li><a href="#status">STATUS</a></li>
   <li><a href="#profile">PROFILE</a></li>
   <li><a href="#about">ABOUT US</a></li>
@@ -86,30 +86,42 @@ form{
 <p style="background-color: #394d60; color: #394d60; margin-top: 0px;">lol</p>
 <br>
 <div class="rform">
-	<form method="post" action="add.php" enctype="multipart/form-data">
+	<form method="post" action="addreq.php" enctype="multipart/form-data">
 		<h1 style="text-align: center;">REQUEST FORM</h1><br>
-		1. Vehicle Registration No.: <input type="text" name="title" required>
+		1. Vehicle Registration No.: <input type="text" name="Vehicle_Req_No" required>
   		<br><br>
     
   		
-    2. Mode of Transport: <input type="text" name="author" required>
+    2. Mode of Transport: <input type="text" name="Mode_Of_Transportation" required>
   		<br><br>
       
   
-    3. Destination: <input type="text" name="price" step="0.01" min="0" required>
+    3. Identity Number: <input type="text" name="Identity_No" required>
   		<br><br>
      
-  4. Departure Date: <input type="text" name="author" required>
+  4. Departure Date: <input type="Date" name="Departure_Date" required>
   		<br><br>
       
   
-    5. Arrival Date: <input type="text" name="price" step="0.01" min="0" required>
+    5. Arrival Date: <input type="Date" name="Arrival_Date" required>
   		<br><br>
 
-  		  6. Reason: <input type="text" name="author" required>
-  		<br>
+  		  6. Reason: <input type="text" name="Reason" required>
+  		<br><br>
 
-      <br><br>  <input onclick="alert('Thank you for your submission. Your request will be processed soon.')" type="submit" value="Submit"><br><br>
+      7. Request Date: <input type="Date" name="Request_Date" required>
+      <br><br>
+
+      8. Form Id: <input type="text" name="Form_Id" required>
+      <br><br>
+
+      9. Staff_Id: <input type="text" name="Staff_Id" required>
+      <br><br>
+
+      <button onclick="alert('Your request will be processed soon!')"><input type="submit" value="submit" name="submit" ></button> 
+
+
+     <!--  <br><br>  <input onclick="alert('Thank you for your submission. Your request will be processed soon.')" type="submit" value="submit" name="submit"><br><br> -->
 </form>
 </div>
 </body>
