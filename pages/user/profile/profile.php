@@ -1,78 +1,87 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
-        .aboutus{
+        .aboutus {
             background-color: #ddd;
         }
-        .formsheet{
+
+        .formsheet {
             width: 1000px;
-            height:550px; 
+            height: 550px;
             padding: 30px;
             background: #fff;
             border-radius: 15px;
-            margin-left: auto; 
+            margin-left: auto;
             margin-right: auto;
         }
-        .formsize{
-            width:20%;
+
+        .formsize {
+            width: 20%;
             padding: 20px;
         }
-        .attribute{
-            width:10%;
+
+        .attribute {
+            width: 10%;
             padding: 15px;
         }
-        .textspace{
+
+        .textspace {
             border-radius: 25px;
             border: 1px solid black;
             width: 100%;
             height: 30px;
         }
-        .btn{
+
+        .btn {
             padding: 10px;
             width: 70%;
             border-radius: 16px;
-            background-color: #dde7ee; 
-            color: black; 
+            background-color: #dde7ee;
+            color: black;
             border: 2px solid #5182A6;
         }
+
         .btn:hover {
             background-color: #87abc4;
             color: white;
         }
-        .btn1{
+
+        .btn1 {
             padding: 10px;
             width: 70%;
             border-radius: 16px;
-            background-color: #fce9e9; 
-            color: black; 
+            background-color: #fce9e9;
+            color: black;
             border: 2px solid #e96363;
         }
+
         .btn1:hover {
             background-color: #f2a6a6;
             color: white;
         }
-
     </style>
     <script type="text/javascript">
-     function myConfirm(){
-          var answer = window.alert("Are sure you want to update your profile data? make sure you fill all.");
-     }
-     </script>
+        function myConfirm() {
+            var answer = window.alert("Are sure you want to update your profile data? make sure you fill all.");
+        }
+    </script>
 </head>
+
 <body class="aboutus">
     <br><br>
     <form class="formsheet" action="Profile-check.php" method='post'>
         <h1> My Profile</h1>
         <?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+        <?php } ?>
 
-          <?php if (isset($_GET['success'])) { ?>
-               <p class="success"><?php echo $_GET['success']; ?></p>
-          <?php } ?>
-        <table style="height=100%;">
-            
+        <?php if (isset($_GET['success'])) { ?>
+            <p class="success"><?php echo $_GET['success']; ?></p>
+        <?php } ?>
+        <table style="height:100%;">
+
             <tr>
                 <td class="attribute">Full Name :</td>
                 <td class="formsize"><input class="textspace" type="text" name='fullname'></td>
@@ -106,11 +115,12 @@
         <table style="margin-left:30%;width: 50%;">
             <tr>
                 <td><button class="btn" name='update' type="submit" onClick="myConfirm() ">Update</button></td>
-                <td><button class="btn1" name='logout' type="submit" >Logout</button></td>
+                <td><button class="btn1" name='logout' type="submit">Logout</button></td>
             </tr>
         </table>
 
     </form>
     <br>
 </body>
+
 </html>
