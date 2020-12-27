@@ -106,6 +106,27 @@
   border-radius: 50px;
 }
 
+#register-button {
+  position: absolute;
+  width: 299px;
+  height: 51px;
+  left: 206px;
+  top: 700px;
+
+  background: rgba(0, 34, 59, 0.75);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 50px;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+
+  color: #ffffff;
+}
+
 #label-login {
   position: absolute;
   left: 41.47%;
@@ -136,4 +157,10 @@
   border: 1px solid rgba(0, 0, 0, 0.64);
   box-sizing: border-box;
   border-radius: 50px;
+}
+
+.help-block{
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial;
 }
