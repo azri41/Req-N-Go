@@ -2,11 +2,9 @@
 <html>
 <head>
     <style>
-        .aboutus{
-            background-color: #CFD3D6;
-        }
         ul{
             list-style-type: none;
+            margin: 0;
         }
         li{
             margin-top: 20px;
@@ -23,15 +21,15 @@
             text-decoration: none;
         }
         li a:hover:not(.active){
-          background-color: #808B96;
+            color: white;
         }
         .navRight {
-          float: right;
+            float: right;
         }
 
     </style>
 </head>
-<body class="aboutus">
+<body style="background-color: #CFD3D6;">
     <ul>
         <img src="../../../img/Logo.png" alt="Logo.png">
         <div class="navRight">

@@ -3,10 +3,32 @@
 
 <head>
     <style>
-        .aboutus {
-            background-color: #ddd;
+        ul{
+            list-style-type: none;
+            background-color: #CFD3D6;
+            margin: 0;
+        }   
+        li{
+            margin-top: 20px;
+            float: left;
+        }
+        li a{
+            font-family: open sans;
+            font-size: 24px;
+            font-weight: 600;         
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover:not(.active){
+          color: white;
         }
 
+        .navRight {
+          float: right;
+        }
         .formsheet {
             width: 1000px;
             height: 550px;
@@ -16,24 +38,20 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .formsize {
             width: 20%;
             padding: 20px;
         }
-
         .attribute {
             width: 10%;
             padding: 15px;
         }
-
         .textspace {
             border-radius: 25px;
             border: 1px solid black;
             width: 100%;
             height: 30px;
         }
-
         .btn {
             padding: 10px;
             width: 70%;
@@ -42,12 +60,10 @@
             color: black;
             border: 2px solid #5182A6;
         }
-
         .btn:hover {
             background-color: #87abc4;
             color: white;
         }
-
         .btn1 {
             padding: 10px;
             width: 70%;
@@ -56,7 +72,6 @@
             color: black;
             border: 2px solid #e96363;
         }
-
         .btn1:hover {
             background-color: #f2a6a6;
             color: white;
@@ -69,7 +84,18 @@
     </script>
 </head>
 
-<body class="aboutus">
+<body style="background-color: #6E8A9E ">
+    <ul>
+        <img src="../../../img/Logo.png" alt="Logo.png">
+        <div class="navRight">
+            <li><a href="#home">HEALTH STATUS</a></li>
+            <li><a href="#request">REQUEST</a></li>
+            <li><a href="#status">STATUS</a></li>
+            <li><a href="#profile">PROFILE</a></li>
+            <li><a href="#about">ABOUT US</a></li>
+        </div>
+    </ul>
+    <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br><br>
     <form class="formsheet" action="Profile-check.php" method='post'>
         <h1> My Profile</h1>
@@ -80,7 +106,7 @@
         <?php if (isset($_GET['success'])) { ?>
             <p class="success"><?php echo $_GET['success']; ?></p>
         <?php } ?>
-        <table style="height:100%;">
+        <table>
 
             <tr>
                 <td class="attribute">Full Name :</td>
