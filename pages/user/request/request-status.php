@@ -62,7 +62,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <div class="navRight">
   <li><a href="#home">HEALTH STATUS</a></li>
   <li><a href="#request">REQUEST</a></li>
-  <li><a href="#status">STATUS</a></li>
+  <li style="background-color: beige;"><a href="#status">STATUS</a></li>
   <li><a href="#profile">PROFILE</a></li>
   <li><a href="#about">ABOUT US</a></li>
 </div>
@@ -80,8 +80,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			<th>Reason</th>
 			<th>Request Date</th>
 			<th>Status</th>
-			<th>Form ID</th>
-			<th>Staff ID</th>
 			<th>Mode of Transportation</th>
 
 		</tr>
@@ -92,7 +90,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			die ("Connection failed: ". $conn-> connect_error);
 		}
 
-		$sql = "SELECT Request_ID, Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Date, Request_Status, Form_ID, Staff_ID, Mode_Of_Transportation FROM request";
+		$sql = "SELECT Request_ID, Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Date, Request_Status, Mode_Of_Transportation FROM request";
 		$result = $conn-> query($sql);
 
 		if ($result-> num_rows > 0)
@@ -108,8 +106,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 				<td><?php echo $row['Reason'];?></td>
 				<td><?php echo $row['Request_Date'];?></td>
 				<td><?php echo $row['Request_Status'];?></td>
-				<td><?php echo $row['Form_ID'];?></td>
-				<td><?php echo $row['Staff_ID'];?></td>
 				<td><?php echo $row['Mode_Of_Transportation'];?></td>
 				<?php
 				//echo "<td><a href = 'delete.php?id=".$row['bookID']."' >Delete</a></td>";
