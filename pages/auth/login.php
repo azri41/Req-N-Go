@@ -13,6 +13,25 @@ session_start();
     <meta name=viewport content="width=device-width, initial-scale=1">
     <title>Req-N-Go</title>
     <link rel="stylesheet" type="text/css" href="../../style/auth_style.css">
+
+    <script>
+    function validateForm() {
+        var x = document.forms["loginForm"]["email"].value;
+        var y = document.forms["loginForm"]["password"].value;
+        if (x == "" && y == "") {
+            alert("All fields must be filled out");
+            return false;
+        }
+        if (x == "") {
+            alert("Email must be filled out");
+            return false;
+        }
+        if (y == "") {
+            alert("Password must be filled out");
+            return false;
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -25,12 +44,11 @@ session_start();
         <h2 id="description"> crossing the state easily.</h2>
     </div>
 
-    </div>
     <div id="login">
         <h3>Login</h3>
     </div>
     <div class="login-form">
-        <form method="post" action="login.php">
+        <form name="loginForm" method="post" action="login.php" onsubmit="return validateForm()">
             <div class="input-group">
                 <label>Email</label>
                 <input type="text" name="email">
@@ -39,11 +57,12 @@ session_start();
                 <label>Password</label>
                 <input type="password" name="password">
             </div>
+            <input id="login-button" type="submit" value="Login">
         </form>
     </div>
-    <div id="login-button">
+    <!-- <div id="login-button">
         <label id="label-login">Login</label>
-    </div>
+    </div> -->
 
 </body>
 
