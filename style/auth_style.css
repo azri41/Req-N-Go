@@ -124,7 +124,6 @@
   color: #ffffff;
 }
 
-
 #register-button {
   position: absolute;
   width: 299px;
@@ -164,6 +163,7 @@
 
 .register-form {
   padding: 10px;
+  left: 1%;
 }
 
 .fullname {
@@ -178,8 +178,82 @@
   border-radius: 50px;
 }
 
-.help-block{
+.help-block {
   font-size: 16px;
   font-weight: bold;
   font-family: Arial;
+}
+
+ul {
+  list-style-type: none;
+  background-color: #cfd3d6;
+  margin: 0;
+}
+li {
+  margin-top: 20px;
+  float: left;
+}
+li a {
+  font-family: open sans;
+  font-size: 24px;
+  font-weight: 600;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover:not(.active) {
+  color: white;
+}
+
+.navRight {
+  float: right;
+}
+.formsheet {
+  width: 1000px;
+  height: 550px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.formsize {
+  width: 20%;
+  padding: 20px;
+}
+.attribute {
+  width: 10%;
+  padding: 15px;
+}
+.textspace {
+  border-radius: 25px;
+  border: 1px solid black;
+  width: 100%;
+  height: 30px;
+}
+.btn {
+  padding: 10px;
+  width: 90%;
+  border-radius: 16px;
+  background-color: #dde7ee;
+  color: black;
+  border: 2px solid #5182a6;
+}
+.btn:hover {
+  background-color: #87abc4;
+  color: white;
+}
+.btn1 {
+  padding: 10px;
+  width: 70%;
+  border-radius: 16px;
+  background-color: #fce9e9;
+  color: black;
+  border: 2px solid #e96363;
+}
+.btn1:hover {
+  background-color: #f2a6a6;
+  color: white;
 }

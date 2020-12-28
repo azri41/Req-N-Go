@@ -15,29 +15,31 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../../style/auth_style.css">
 
     <script>
-    function validateForm() {
-        var x = document.forms["loginForm"]["email"].value;
-        var y = document.forms["loginForm"]["password"].value;
-        if (x == "" && y == "") {
-            alert("All fields must be filled out");
-            return false;
+        function validateForm() {
+            var x = document.forms["loginForm"]["email"].value;
+            var y = document.forms["loginForm"]["password"].value;
+            if (x == "" && y == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (x == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            if (y == "") {
+                alert("Password must be filled out");
+                return false;
+            }
         }
-        if (x == "") {
-            alert("Email must be filled out");
-            return false;
-        }
-        if (y == "") {
-            alert("Password must be filled out");
-            return false;
-        }
-    }
     </script>
 </head>
 
 <body>
-<a href="../../index.php"><img id="logo_login" src="../../img/logo.png"></a>
+    <a href="../../index.php"><img id="logo_login" src="../../img/logo.png"></a>
     <div id="rectangle">
-        <h2 id="home">Home</h2>
+
+
+        <br><br><br>
         <h1 id="welcome">WELCOME</h1>
         <h2 id="description">Req N Go is a website that</h2>
         <h2 id="description"> help you to apply for</h2>

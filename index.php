@@ -15,15 +15,15 @@ session_start();
 
     <style>
         body {
-  /* background: #1690a7; */
-  background: url("../img/wallpaper2.jfif");
-  background-repeat: no-repeat;
-  background-size: auto;
+            /* background: #1690a7; */
+            background: url("img/wallpaper2.jfif");
+            background-repeat: no-repeat;
+            background-size: auto;
 
-  /* align-items: center; */
-  height: 100vh;
-  /* flex-direction: column; */
-}
+            /* align-items: center; */
+            height: 100vh;
+            /* flex-direction: column; */
+        }
     </style>
 </head>
 
