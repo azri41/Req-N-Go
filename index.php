@@ -12,6 +12,19 @@ session_start();
     <meta name=viewport content="width=device-width, initial-scale=1">
     <title>Req-N-Go</title>
     <link rel="stylesheet" type="text/css" href="style/style.css">
+
+    <style>
+        body {
+  /* background: #1690a7; */
+  background: url("../img/wallpaper2.jfif");
+  background-repeat: no-repeat;
+  background-size: auto;
+
+  /* align-items: center; */
+  height: 100vh;
+  /* flex-direction: column; */
+}
+    </style>
 </head>
 
 <body>
