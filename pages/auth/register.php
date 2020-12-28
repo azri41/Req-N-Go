@@ -235,6 +235,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /* flex-direction: column; */
         }
     </style>
+
+    <script>
+        function validateForm() {
+            var a = document.forms["registerForm"]["fullname"].value;
+            var b = document.forms["registerForm"]["email"].value;
+            var c = document.forms["registerForm"]["phone"].value;
+            var d = document.forms["registerForm"]["nationality"].value;
+            var e = document.forms["registerForm"]["idnumber"].value;
+            var f = document.forms["registerForm"]["state"].value;
+            var g = document.forms["registerForm"]["area"].value;
+            var h = document.forms["registerForm"]["postalcode"].value;
+            var i = document.forms["registerForm"]["address"].value;
+
+            if (a == "" && b == "" && c == "" && d == "" && e == "" && f == "" && g == "" && h == "" && i == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (a == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            if (b == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            if (c == "") {
+                alert("Phone number must be filled out");
+                return false;
+            }
+            if (d == "") {
+                alert("Nationality must be filled out");
+                return false;
+            }
+            if (e == "") {
+                alert("Identity number must be filled out");
+                return false;
+            }
+            if (f == "") {
+                alert("State must be filled out");
+                return false;
+            }
+            if (g == "") {
+                alert("Area must be filled out");
+                return false;
+            }
+            if (h == "") {
+                alert("Postal code must be filled out");
+                return false;
+            }
+            if (i == "") {
+                alert("Address must be filled out");
+                return false;
+            }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -242,7 +298,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <div class="register-form">
-        <form class="formsheet" action="Profile-check.php" method='post'>
+        <form name="registerForm" class="formsheet" action="login.php" method='post' onsubmit="return validateForm()">
 
             <h1> Register</h1>
 
@@ -287,7 +343,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <table style="margin-left:30%;width: 50%;">
                 <tr>
-                    <td><button class="btn" name='register' type="submit" onClick="myConfirm() ">Register</button></td>
+                    <td><button class="btn" name='register' type="submit">Register</button></td>
 
                 </tr>
             </table>
