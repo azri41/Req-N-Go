@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Health Status Form</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../../../style/style.css">
 
      <script type="text/javascript">
      function myConfirm(){
@@ -10,8 +10,47 @@
      }
      </script>
 
+     <style>
+        ul{
+            list-style-type: none;
+            background-color: #CFD3D6;
+            margin: 0;
+        }   
+        li{
+            margin-top: 20px;
+            float: left;
+        }
+        li a{
+            font-family: open sans;
+            font-size: 24px;
+            font-weight: 600;         
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover:not(.active){
+          color: white;
+        }
+        .navRight {
+            float: right;
+        }
+     </style>
 </head>
-<body>
+<body style="background-color: #6E8A9E">
+    <ul>
+    <a href="../../../index.php"><img src="../../../img/logo.png"></a>
+        <div class="navRight">
+            <li><a style="color: white" href="form.php">HEALTH STATUS</a></li>
+            <li><a href="../request/request-main.php">REQUEST</a></li>
+            <li><a href="../request/request-status.php">STATUS</a></li>
+            <li><a href="../profile/Profile.php">PROFILE</a></li>
+            <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
+        </div>
+    </ul>
+    <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
+    <br>
      <form action="form-check.php" method="post">
      	<h2>Health Status Form</h2>
      	<?php if (isset($_GET['error'])) { ?>
@@ -62,8 +101,9 @@
                          <td><input type="checkbox" id="Throat" name="throat" value="Yes"></td>
                     </tr>
                </table>
-               <label>Other symtoms (please specify)</label>
-               <input type="text" name="symtoms" placeholder="Other symtoms"><br>
+               <br>
+               <label>Other symptoms (please specify)</label>
+               <input type="text" name="symtoms" placeholder="Other symptoms"><br>
           
                <label>3. Have you been in close contact with person suspected to have COVID-19?</label><br><br>
                <table class="center">

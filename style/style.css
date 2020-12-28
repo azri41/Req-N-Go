@@ -1,21 +1,21 @@
-header {
+/* header {
   padding: 30px;
   height: 16%;
   position: relative;
   font-size: 10px;
   text-align: center;
-}
+} */
 
-body {
+/* body {
   /* background: #1690a7; */
-  background: url("../img/wallpaper2.jfif");
+  /* background: url("../img/wallpaper2.jfif");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: auto; */
 
   /* align-items: center; */
-  height: 100vh;
+  /* height: 100vh; */
   /* flex-direction: column; */
-}
+/* } */ 
 
 * {
   font-family: sans-serif;

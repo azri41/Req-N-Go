@@ -31,16 +31,16 @@
 </head>
 <body style="background-color: #CFD3D6;">
     <ul>
-        <img src="../../../img/Logo.png" alt="Logo.png">
+    <a href="../../../index.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
-            <li><a href="#home">HEALTH STATUS</a></li>
-            <li><a href="#request">REQUEST</a></li>
-            <li><a href="#status">STATUS</a></li>
-            <li><a href="#profile">PROFILE</a></li>
-            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="../health/form.php">HEALTH STATUS</a></li>
+            <li><a href="../request/request-main.php">REQUEST</a></li>
+            <li><a href="../request/request-status.php">STATUS</a></li>
+            <li><a href="../profile/Profile.php">PROFILE</a></li>
+            <li><a style="color: white" href="about-us.php">ABOUT US</a></li>
         </div>
     </ul>
-    <br>
+    <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <img src="../../../img/Background.png" alt="Nature" style="width:100%;">
     <br><br><br>
 

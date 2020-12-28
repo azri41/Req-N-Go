@@ -48,7 +48,7 @@ session_start();
         <h3>Login</h3>
     </div>
     <div class="login-form">
-        <form name="loginForm" method="post" action="login.php" onsubmit="return validateForm()">
+        <form name="loginForm" method="post" action="../user/homescreen/about-us.php" onsubmit="return validateForm()">
             <div class="input-group">
                 <label>Email</label>
                 <input type="text" name="email">

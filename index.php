@@ -61,7 +61,7 @@ session_start();
 
                     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                         if ($_SESSION["usertype"] === 'Customer') {
-                            header("location: UserMain.php");
+                            header("location:pages/homescreen/about-us.php.php");
                             exit;
                         } elseif ($_SESSION["usertype"] === 'Admin') {
                             header("location: AdminMain.php");

@@ -86,13 +86,13 @@
 
 <body style="background-color: #6E8A9E ">
     <ul>
-        <img src="../../../img/Logo.png" alt="Logo.png">
+    <a href="../../../index.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
-            <li><a href="#home">HEALTH STATUS</a></li>
-            <li><a href="#request">REQUEST</a></li>
-            <li><a href="#status">STATUS</a></li>
-            <li><a href="#profile">PROFILE</a></li>
-            <li><a href="#about">ABOUT US</a></li>
+        <li><a href="../health/form.php">HEALTH STATUS</a></li>
+        <li><a href="../request/request-main.php">REQUEST</a></li>
+        <li><a href="../request/request-status.php">STATUS</a></li>
+        <li><a style="color: white" href="Profile.php">PROFILE</a></li>
+        <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
         </div>
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
