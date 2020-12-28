@@ -35,7 +35,7 @@ session_start();
 </head>
 
 <body>
-    <img id="logo_login" src="../../img/logo.png">
+<a href="../../index.php"><img id="logo_login" src="../../img/logo.png"></a>
     <div id="rectangle">
         <h2 id="home">Home</h2>
         <h1 id="welcome">WELCOME</h1>
