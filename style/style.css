@@ -234,12 +234,12 @@ input[type="text"] {
   padding: 8px;
 }
 
-td {
+/* td {
   border: 2px solid black;
   background-color: #d0d1df;
   padding: 8px;
   text-align: center;
-}
+} */
 
 .searchbar {
   /* border: 2px solid black; */
