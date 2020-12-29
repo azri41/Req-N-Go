@@ -46,6 +46,6 @@ if(isset($_POST['update'])){
 
 }
 else if(isset($_POST['logout'])){
-    header("Location: home.php");
+    header("Location: ../../../index.php");
     exit();
 }

@@ -66,11 +66,13 @@
         }
         .btn1 {
             padding: 10px;
-            width: 70%;
+            /* width: 70%; */
+            width: 17%;
             border-radius: 16px;
             background-color: #fce9e9;
             color: black;
             border: 2px solid #e96363;
+            margin-top: 50px;
         }
         .btn1:hover {
             background-color: #f2a6a6;
@@ -79,7 +81,70 @@
     </style>
     <script type="text/javascript">
         function myConfirm() {
-            var answer = window.alert("Are sure you want to update your profile data? make sure you fill all.");
+            var answer = window.confirm("Are sure you want to update your profile data?");
+        }
+
+        function logOut() {
+            // var answer = window.confirm("Are sure you want to logout?");
+            var r = confirm('Are you sure you want to logout?');
+            if (r == true) {
+                window.location.href= "../../../index.php";
+            } else {
+                window.location.href = "Profile.php";
+            }
+        }
+
+        function validateForm() {
+            var a = document.forms["profileForm"]["fullname"].value;
+            var b = document.forms["profileForm"]["email"].value;
+            var c = document.forms["profileForm"]["phone"].value;
+            var d = document.forms["profileForm"]["nationality"].value;
+            var e = document.forms["profileForm"]["idnumber"].value;
+            var f = document.forms["profileForm"]["state"].value;
+            var g = document.forms["profileForm"]["area"].value;
+            var h = document.forms["profileForm"]["postalcode"].value;
+            var i = document.forms["profileForm"]["address"].value;
+
+            if (a == "" && b == "" && c == "" && d == "" && e == "" && f == "" && g == "" && h == "" && i == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            if (a == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            if (b == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            if (c == "") {
+                alert("Phone number must be filled out");
+                return false;
+            }
+            if (d == "") {
+                alert("Nationality must be filled out");
+                return false;
+            }
+            if (e == "") {
+                alert("Identity number must be filled out");
+                return false;
+            }
+            if (f == "") {
+                alert("State must be filled out");
+                return false;
+            }
+            if (g == "") {
+                alert("Area must be filled out");
+                return false;
+            }
+            if (h == "") {
+                alert("Postal code must be filled out");
+                return false;
+            }
+            if (i == "") {
+                alert("Address must be filled out");
+                return false;
+            }
         }
     </script>
 </head>
@@ -97,7 +162,7 @@
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br><br>
-    <form class="formsheet" action="Profile-check.php" method='post'>
+    <form name="profileForm" class="formsheet" action="Profile-check.php" method='post'> <!--onsubmit="return validateForm()"> -->
         <h1> My Profile</h1>
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
@@ -140,12 +205,14 @@
 
         <table style="margin-left:30%;width: 50%;">
             <tr>
-                <td><button class="btn" name='update' type="submit" onClick="myConfirm() ">Update</button></td>
-                <td><button class="btn1" name='logout' type="submit">Logout</button></td>
+                <td><button class="btn" name='update' type="submit" onClick="myConfirm()">Update</button></td>
+                <!-- <td><button class="btn1" name='logout' onClick="logOut()">Logout</button></td> -->
             </tr>
         </table>
 
     </form>
+<center><button class="btn1" name='logout' onClick="logOut()">Logout</button></center>
+
     <br>
 </body>
 
