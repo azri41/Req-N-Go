@@ -6,7 +6,7 @@
 
      <script type="text/javascript">
      function myConfirm(){
-          var answer = window.alert("Please ensure all details are accurate before submitting");
+          var answer = window.confirm("Please ensure all details are accurate before submitting");
      }
      </script>
 

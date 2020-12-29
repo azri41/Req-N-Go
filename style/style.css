@@ -24,11 +24,11 @@
 
 form {
   width: 800px;
-  height: 1200px;
+  height: 100%;
   border: 2px solid #ccc;
-  padding: 30px;
+  padding: 40px;
   background: #fff;
-  border-radius: 15px;
+  border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
 }
