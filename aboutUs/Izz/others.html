@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+      <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+
+      </script>
+</head>
+<body>
+
+  <ul>
+    <br>
+      <img src="image/MyPic.jpeg" alt="My Photo"  width="170" height="230" />
+      <h2 >My Photo</h2>
+        <li><a href="biography.html">Biography</a></li>
+        <li><a href="myjourney.html">My Journey</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="active" href="others.html">Others</a></li>
+        <li><a href="test.html">Join member</a></li>
+  </ul>
+
+    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
+      
+      <uk>
+        <h2>Others</h2>
+        
+        </uk><br><br><br><br><br>
+          
+        <table class="xtable" >
+          <tr>
+            <p class="xp">Drag right symbol into the box if you are done.</p>
+          </tr>
+          <tr>
+            <th>
+              <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </th>
+            <th>
+              <img style="margin-left: 7%;" id="drag1" src="image/yes.png" draggable="true" ondragstart="drag(event)" width="150" height="100">
+            </th>
+          </tr>
+        </table><br><br>
+        
+        <audio class="ctr" controls autoplay>
+          <source src = "media/birds.mp3" type = "audio/wav" />
+        </audio><br><br>
+            
+        <video class="ctr"  width="900" height="500" controls autoplay>
+            <source src="media/demo.mp4" type="video/mp4" />
+            Your browser does not support the <video> element.
+        </video>
+        
+    </div>
+    <br>
+</body>
+</html>
