@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Azri's Contact</title>
+        <link href="../../aboutUs/Azri/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">
+            function drawShape(){
+                // get the canvas element using the DOM
+                var canvas = document.getElementById('mycanvas');
+                // Make sure we don't execute when canvas isn't supported
+                if (canvas.getContext){
+                // use getContext to use the canvas for drawing
+                var ctx = canvas.getContext('2d');
+                // Draw shapes
+                ctx.beginPath();
+                ctx.moveTo(37.5,12.5);
+                ctx.quadraticCurveTo(12.5,12.5,12.5,31.25);
+                ctx.quadraticCurveTo(12.5,50,25,50);
+                ctx.quadraticCurveTo(25,60,15,62.5);
+                ctx.quadraticCurveTo(30,60,32.5,50);
+                ctx.quadraticCurveTo(62.5,50,62.5,31.25);
+                ctx.quadraticCurveTo(62.5,12.5,37.5,12.5);
+                ctx.stroke();
+                }
+                else {
+                alert('You need Safari or Firefox 1.5+ to see this demo.');
+                }
+            }
+        </script>
+    </head>
+
+        <header>
+            <canvas id="myCanvas" width="190" height="60">
+                Your browser does not support the HTML canvas tag.</canvas>
+                <script>
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.font = "30px Freestyle Script";
+                ctx.fillText("My Biography",10,50);
+                </script>
+                <body id="test" onload="drawShape();">
+                    <canvas id="mycanvas"></canvas>
+                </body>
+            <div class="row">
+                <ul class="main-nav">
+                    <li class="active"><a href="../../aboutUs/Azri/Azri Biography.html">HOME</a></li>
+                    <li class="active"><a href="../../aboutUs/Azri/bio-educations.html">EDUCATIONS</a></li>
+                    <li class="active"><a href="../../aboutUs/Azri/bio-achievements.html">ACHIEVEMENTS</a></li>
+                    <li class="active"><a href="../../aboutUs/Azri/bio-contact.html">CONTACT</a></li>
+                    <li class="active"><a href="../../aboutUs/Azri/bio-feedback.html">FEEDBACK</a></li>
+                </ul>
+                <audio src="../../aboutUs/Azri/audio/bgm.mp3" controls preload>
+                    Your browser does not support the <audio> element.
+                </audio>
+            </div>
+        </header>
+<body>
+<h1>Contact</h1>
+<table class="center">
+    <tr>
+        <td><b>Email:</b></td>
+        <td>B031810248@student.utem.edu.my</td>
+    </tr>
+    <tr>
+    <td><b>Phone Number:</b></td>
+        <td>017-2276503</td>
+    </tr>
+    <tr>
+        <td><b>Address:</b></td>
+        <td>Lot 2101, Batu 10 1/4, Kampung Paya Lada, 16450 Ketereh, Kelantan.</td>
+    </tr>
+</table><br>
+
+<table>
+    <h2>Social Media Accounts</h2>
+</table>
+<a href="https://www.facebook.com/muhammadazri.azmi.1/"><img src="../../aboutUs/Azri/img/fb.png" class="logo2"></a>
+<a href="https://www.instagram.com/azri41/?hl=en"><img src="../../aboutUs/Azri/img/insta.webp" class="logo2"></a>
+
+<footer class="footer-home">
+    Copyright © Azri Azmi, 2020
+</footer>
+
+</body>
+</html>

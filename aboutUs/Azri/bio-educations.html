@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Azri's Educations</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">
+            function drawShape(){
+                // get the canvas element using the DOM
+                var canvas = document.getElementById('mycanvas');
+                // Make sure we don't execute when canvas isn't supported
+                if (canvas.getContext){
+                // use getContext to use the canvas for drawing
+                var ctx = canvas.getContext('2d');
+                // Draw shapes
+                ctx.beginPath();
+                ctx.moveTo(37.5,12.5);
+                ctx.quadraticCurveTo(12.5,12.5,12.5,31.25);
+                ctx.quadraticCurveTo(12.5,50,25,50);
+                ctx.quadraticCurveTo(25,60,15,62.5);
+                ctx.quadraticCurveTo(30,60,32.5,50);
+                ctx.quadraticCurveTo(62.5,50,62.5,31.25);
+                ctx.quadraticCurveTo(62.5,12.5,37.5,12.5);
+                ctx.stroke();
+                }
+                else {
+                alert('You need Safari or Firefox 1.5+ to see this demo.');
+                }
+            }
+
+            function info_sri(){
+                window.open("https://ms.wikipedia.org/wiki/Sekolah_Kebangsaan_Sri_Kelana", "window name",
+                "height=480,width=854, status = no, toolbar=no, menubar=no, location = no")
+            }
+
+            function info_meth(){
+                window.open("https://www.facebook.com/mbsgreenarmy/", "window name",
+                "height=480,width=854, status = no, toolbar=no, menubar=no, location = no")
+            }
+
+            function info_smkdh(){
+                window.open("https://ms.wikipedia.org/wiki/Sekolah_Menengah_Kebangsaan_Dato_Hamzah", "window name",
+                "height=480,width=854, status = no, toolbar=no, menubar=no, location = no")
+            }
+
+            function info_kmm(){
+                window.open("http://www.kmm.matrik.edu.my/", "window name",
+                "height=480,width=854, status = no, toolbar=no, menubar=no, location = no")
+            }
+
+            function info_utem(){
+                window.open("https://www.utem.edu.my/", "window name",
+                "height=480,width=854, status = no, toolbar=no, menubar=no, location = no")
+            }
+
+        </script>
+    </head>
+
+        <header>
+            <canvas id="myCanvas" width="190" height="60">
+                Your browser does not support the HTML canvas tag.</canvas>
+                <script>
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.font = "30px Freestyle Script";
+                ctx.fillText("My Biography",10,50);
+                </script>
+                <body id="test" onload="drawShape();">
+                    <canvas id="mycanvas"></canvas>
+                </body>
+            <div class="row">
+                <ul class="main-nav">
+                    <li class="active"><a href="Azri Biography.html">HOME</a></li>
+                    <li class="active"><a href="bio-educations.html">EDUCATIONS</a></li>
+                    <li class="active"><a href="bio-achievements.html">ACHIEVEMENTS</a></li>
+                    <li class="active"><a href="bio-contact.html">CONTACT</a></li>
+                    <li class="active"><a href="bio-feedback.html">FEEDBACK</a></li>
+                </ul>
+                <audio src="audio/bgm.mp3" controls preload>
+                    Your browser does not support the <audio> element.
+                </audio>
+            </div>
+        </header>
+<body>
+    <h1>Educations</h1>
+    <table class="center">
+        <tr>
+            <td><img src="img/diamond.png" class="num"> Sekolah Kebangsaan Sri Kelana, Petaling Jaya
+            <input id="btn_info" type="button" value="Info" onclick="info_sri()">
+            </td>
+            <td><img src="img/sri kelana.jpg" class="logo"></td>
+        </tr>
+        <tr>
+            <td><img src="img/diamond.png" class="num"> Sekolah Kebangsaan Methodist, Pelabuhan Klang
+                <input id="btn_info" type="button" value="Info" onclick="info_meth()"></td>
+            <td><img src="img/methodist.jpg" class="logo"></td>
+        </tr>
+        <tr>
+            <td><img src="img/diamond.png" class="num"> Sekolah Menengah Kebangsaan Dato Hamzah, Pelabuhan Klang
+                <input id="btn_info" type="button" value="Info" onclick="info_smkdh()"></td>
+            <td><img src="img/dato.jpg" class="logo"></td>
+        </tr>
+        <tr>
+            <td><img src="img/diamond.png" class="num"> Kolej Matrikulasi Melaka
+                <input id="btn_info" type="button" value="Info" onclick="info_kmm()"></td>
+            <td><img src="img/kmm-logo.png" class="logo"></td>
+        </tr>
+        <tr>
+            <td><img src="img/diamond.png" class="num"> Universiti Teknikal Malaysia Melaka
+            <input id="btn_info" type="button" value="Info" onclick="info_utem()"></td>
+            <td><img src="img/utem.png" class="logo"></td>
+        </tr>
+    </table>
+    <footer>
+        Copyright © Azri Azmi, 2020
+    </footer>
+
+</body>
+</html>
