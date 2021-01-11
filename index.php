@@ -69,7 +69,7 @@ session_start();
                         }
                     }
                 } else {
-                    echo '<p class="login-status">You are logged out!</p>';
+                    // echo '<p class="login-status">You are logged out!</p>';
                 }
                 ?>
             </section>
@@ -85,6 +85,13 @@ session_start();
         </side>
 
     </main>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+    intent="WELCOME"
+    chat-title="Borderz"
+    agent-id="3784ef82-a873-40d8-aaa3-3a0a07de9806"
+    language-code="en"
+    ></df-messenger>
 </body>
 
 

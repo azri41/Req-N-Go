@@ -214,6 +214,13 @@
 <center><button class="btn1" name='logout' onClick="logOut()">Logout</button></center>
 
     <br>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+    intent="WELCOME"
+    chat-title="Borderz"
+    agent-id="3784ef82-a873-40d8-aaa3-3a0a07de9806"
+    language-code="en"
+    ></df-messenger>
 </body>
 
 </html>
