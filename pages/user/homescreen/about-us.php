@@ -37,7 +37,7 @@
             <li><a href="../request/request-main.php">REQUEST</a></li>
             <li><a href="../request/request-status.php">STATUS</a></li>
             <li><a href="../profile/Profile.php">PROFILE</a></li>
-            <li><a style="color: white" href="about-us.php">ABOUT US</a></li>
+            <li><a style="color: white" href="about-us.php">ABOUT US</a></li>          
         </div>
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
@@ -52,5 +52,13 @@
             <th style="width:60%; border: 5px solid #99A3A4;text-align:justify;padding: 20px; font-family:monaco; font-size: 30px;opacity: 0.7 ;border-radius: 25px;"><h1>How We Work</h1>Before making any request from our Req N Go, your need to become a member by filling in your details first and creating an account. All informati given to us are kept as private and confidential. Also, members are required to declare their health status before requesting for crossing the border form. Request to cross the border must be done at least 3 days before the date. It takes around 2-4 days to process your request, either it is approve or otherwise.<br><th>
         </tr>
     </table>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+    intent="WELCOME"
+    chat-title="Borderz"
+    agent-id="3784ef82-a873-40d8-aaa3-3a0a07de9806"
+    language-code="en"
+    ></df-messenger>
 </body>
 </html>
