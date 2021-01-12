@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Education</title>
+<link rel="stylesheet"href="css/layoutstyle.css"type="text/css">
+ <script type="text/javascript">
+ 	function drawBubble(ctx, x, y, w, h, radius)
+	{
+  		var r = x + w;
+  		var b = y + h;
+  		ctx.beginPath();
+  		ctx.strokeStyle="black";
+  		ctx.lineWidth="2";
+  		ctx.moveTo(x+radius, y);
+  		ctx.lineTo(x+radius/2, y-10);
+  		ctx.lineTo(x+radius * 2, y);
+  		ctx.lineTo(r-radius, y);
+  		ctx.quadraticCurveTo(r, y, r, y+radius);
+  		ctx.lineTo(r, y+h-radius);
+  		ctx.quadraticCurveTo(r, b, r-radius, b);
+  		ctx.lineTo(x+radius, b);
+  		ctx.quadraticCurveTo(x, b, x, b-radius);
+  		ctx.lineTo(x, y+radius);
+  		ctx.quadraticCurveTo(x, y, x+radius, y);
+  		ctx.stroke();
+	}
+	function dispQuote() 
+	{
+  		var canvas = document.getElementById('canvas1');
+  		var ctx = canvas.getContext('2d'); 
+  		drawBubble(ctx, 10,60,220, 90, 20);
+	}
+	window.onload=dispQuote;
+
+	//Browsing a website using JavaScript
+	function Site(val)
+	{
+		window.open(val);
+	}
+ </script>
+</head>
+
+<body>
+	<!--Top container. Place all layout DIVs here-->
+	<div id="wrapper">
+
+	<!--Header content-->	
+	<div class="curved">
+	<h1>WELCOME TO MY WEBSITE</h1>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 200"><path fill="#FFF8DC" fill-opacity="1" d="M0,96L48,133.3C96,171,192,245,288,245.3C384,245,480,171,576,160C672,149,768,203,864,229.3C960,256,1056,256,1152,261.3C1248,267,1344,277,1392,282.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+	</div>
+
+	<!--Site Navigation Link List-->
+	<div id="navigation">
+	<ul>
+	<li><a href="index.html">HOME</a></li>
+	<li><a href="mysite.html">BIODATA</a></li>
+	<li><a href="education.html">EDUCATION</a></li>
+	<li><a href="contact.html">CONTACT</a></li>
+	</ul>
+	</div>
+
+	<!--Divide content into blocks-->
+	<div id ="content-container">
+
+	<!--Left block-->
+	<div id="main">
+	<h2>My Education</h2>
+	<table style="text-align: left; width: 90%;" border="1" cellpadding="1" cellspacing="1">
+	<tr>
+		<td><strong>Educational Stage<br></strong></td>
+		<td><strong>School/University</strong></td>
+	</tr>
+	<tr>
+		<td>Kindergarten</td>
+		<td><center><br></br><img src="img/Kindergarten.jpg" style="width: 300px; height: 250px;" alt="Kindergarten School" ><br>My kindergarten school is <b>Serikids Educare Centres</b> (Cheng, Melaka)</br><br></br></center></td>
+	</tr>
+	<tr>
+		<td>Primary School</td>
+		<td><center><br></br><img src="img/primary.jpg" style="width: 350px; height: 200px;" alt="Primary School" ><br>My primary school is <b>SJK(C)Bachang</b> (Lorong Pandan, Melaka)</br><br></br></center></td>
+	</tr>
+	<tr>
+		<td>Secondary School</td>
+		<td><center><br></br><img src="img/secondary.jpg" style="width: 350px; height: 200px;" alt="Secondary School" ><br>My secondary school is <b>SMK (P) Methodist</b> (Tengkera, Melaka)</br><br></br></center></td>
+	</tr>
+	<tr>
+		<td>College</td>
+		<td><center><br></br><img src="img/kmm_1.jpg" style="width: 350px; height: 200px;" alt="College" ><br>My college is <b>Malacca Matriculation College</b> (Masjid Tanah, Melaka)</br><br></br></center></td>
+	</tr>
+	<tr>
+		<td>University</td>
+		<td><center><br></br><img src="img/University.jpg" style="width: 350px; height: 200px;" alt="Universiti Teknikal Malaysia Melaka" ><br>Currently, I'm studying in <b>University Technical Malaysia Melaka(UTeM)</b> (Durian Tunggal,Melaka)</br></br><img src="img/ftmk.jpg" style="width: 350px; height: 200px;" alt="Universiti Teknikal Malaysia Melaka" ></br>The course that I take is <b>Bachelor of Computer Science (Artificial Intelligence)</b><br>I'm the student of BITI year 3 semester 1 for now.</br></br></br>You can select a site to browse if you are interested to know about my University and Faculty<hr/>
+		<form name = "testform">
+		<select name = "SiteSelector" size = "1" onChange="Site(value)">
+			<option disabled selected value = ""> Select </option>
+			<option value = "http://www.utem.edu.my"> UTeM </option>
+			<option value = "http://ftmk.utem.edu.my"> FTMK</option>
+		</select>
+		</form></br></center></td>
+	</tr>
+	</table>
+	</div>
+	<!--Right block-->
+	<div id="side">
+	<h3>Side Bar Content</h3>
+	<div class="bubble">
+		<canvas id="canvas1" class="bubbleborder" width="240" height="200">
+		</canvas>
+	<div class="bubbletext">
+	<i>Maybe we are <br>ex-schoolmates?</i>
+	</div>
+	</div>
+	</div>
+	<!--Lower block-->
+	<div id="footer">
+	Copyright © TanYiWen, 2020
+	</div>
+	<!--End of contentblock-->
+	</div>
+	<!--End of Top container-->
+	</div>
+	
+</body>
+</html>

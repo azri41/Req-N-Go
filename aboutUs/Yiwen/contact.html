@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<link rel="stylesheet"href="css/layoutstyle.css"type="text/css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                var $ = jQuery, canvas = $('#myCanvas')[0];
+                
+                var c = canvas.getContext('2d');
+                
+                // Prepare the color
+                c.strokeStyle = "#FFF440";
+                c.lineWidth = 5;
+                
+                // Draw the smiley
+                c.beginPath();
+                c.arc(110, 110, 100, 0, Math.PI * 2);
+                c.moveTo(90, 80);
+                c.arc(70, 80, 20, 0, Math.PI * 2);
+                c.moveTo(170, 80);
+                c.arc(150, 80, 20, 0, Math.PI * 2);
+                c.moveTo(190, 110);
+                c.arc(110, 110, 80, 0, Math.PI);
+                c.moveTo(190, 110);
+                c.ellipse(110, 110, 80, 40, 0, 0, Math.PI);
+                c.stroke();
+            });
+    	</script>
+</head>
+
+<body>
+	<!--Top container. Place all layout DIVs here-->
+	<div id="wrapper">
+
+	<!--Header content-->	
+	<div class="curved">
+	<h1>WELCOME TO MY WEBSITE</h1>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 200"><path fill="#FFF8DC" fill-opacity="1" d="M0,96L48,133.3C96,171,192,245,288,245.3C384,245,480,171,576,160C672,149,768,203,864,229.3C960,256,1056,256,1152,261.3C1248,267,1344,277,1392,282.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+	</div>
+	<!--Site Navigation Link List-->
+	<div id="navigation">
+	<ul>
+	<li><a href="index.html">HOME</a></li>
+	<li><a href="mysite.html">BIODATA</a></li>
+	<li><a href="education.html">EDUCATION</a></li>
+	<li><a href="contact.html">CONTACT</a></li>
+	</ul>
+	</div>
+
+	<!--Divide content into blocks-->
+	<div id ="content-container">
+	<!--Right block-->
+	<div id="side">
+	<h3>Side Bar Content</h3>
+	<p>Let's be friends~</p>
+	<canvas id="myCanvas" width="215" height="260"></canvas>
+	<svg viewBox="0 0 370 100" xmlns="http://www.w3.org/2000/svg">
+  	<style>
+    .small { font: italic 18px sans-serif; }
+    .heavy { font: bold 30px sans-serif; }
+    .bbb{font:bold 60px serif;}
+
+    /* Note that the color of the text is set with the    *
+     * fill property, the color property is for HTML only */
+    .Rrrrr { font: italic 60px serif; fill: red; }
+  	</style>
+
+  	<text x="10" y="35" class="small">so</text>
+  	<text x="30" y="35" class="heavy">Glad</text>
+  	<text x="55" y="75" class="small">to</text>
+  	<text x="130" y="60" class="bbb">YOU</text>
+  	<text x="70" y="75" class="Rrrrr">Know</text>
+	</svg>
+	</div>
+	<!--Left block-->
+	<div id="main">
+	<div class="contact-form">
+    	<h2>Contact Me</h2>
+		Do feel free to leave your information and drop a comment~<br><br>
+		<form name="signUp" onsubmit="return confirm('Are you sure you want to submit this form?');">
+		<div class="drop-zone">
+    		<span class="drop-zone__prompt">Drop file here or click to upload</span>
+    		<input type="file" name="myFile" class="drop-zone__input">
+  		</div>
+
+
+		<div class="input-group">
+     	 	<label><br>Name :</label>
+      		<input type="text" name="" value="" placeholder="Enter Your Name" pattern="[a-zA-Z][a-zA-Z ]{2,}" title="Please enter your full name" value autofocus required>
+    	</div>
+
+		<div class="input-group">
+      		<label><br>Phone No. :</label>
+      		<input type="tel" name="phone" pattern="[[0-9]{10,11}" placeholder="eg. 018268XXXX" required>
+    	</div>
+		
+		<div>
+			<label><br>Gender : </label><br>
+			<input type = "radio" id="male" name = "gender" value = "male" >
+			<label for="male">Male</label><br>
+			<input type = "radio" id="female" name = "gender" value = "female" >
+			<label for="female">Female</label>
+		</div>
+
+		<div class="input-group">
+			<label><br>Date of Birth :</label>
+			<input type = "date" name = "newinput" />
+		</div>
+		
+		<div class="input-group">
+      		<label><br>Email :</label>
+      		<input type="email" name="emailaddress" placeholder="eg. XXX123@gmail.com">
+    	</div>
+
+		<div class="input-group">
+      		<label><br>Comment :</label>
+    		<textarea name="subject" placeholder="Write something.."></textarea>
+    	</div>
+
+    	<div class="btn" style="text-align:center">
+      		<input class="btn" id='pwd2' type="submit" value="Submit">
+      	</div>
+	
+
+		</form>
+	</center>
+	</div>
+	<!--End of contentblock-->
+	</div>
+	<!--Lower block-->
+	<div id="footer">
+	Copyright © TanYiWen, 2020
+	</div>
+	<!--End of Top container-->
+	</div>
+
+	<script src="js/main.js"></script>
+
+</body>
+</html>
