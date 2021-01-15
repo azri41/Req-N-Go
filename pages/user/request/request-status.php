@@ -59,7 +59,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 <div class="navRight">
   <li><a href="../health/form.php">HEALTH STATUS</a></li>
   <li><a href="request-main.php">REQUEST</a></li>
-  <li style="color: white" href="request-status.php">STATUS</a></li>
+  <li><a style="background-color: white" href="request-status.php">STATUS</a></li>
   <li><a href="../profile/Profile.php">PROFILE</a></li>
   <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
 </div>
