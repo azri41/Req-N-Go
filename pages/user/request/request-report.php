@@ -12,8 +12,12 @@ if(!$conn)
  
 ?>
  
+<?php
+$Request_ID = $_GET['Request_ID']
+?>
+
 <?php 
- $sql = "SELECT * FROM user INNER JOIN request ON user.Identity_No = request.Identity_No";  
+ $sql = "SELECT * FROM user INNER JOIN request ON user.Identity_No = request.Identity_No WHERE Request_ID = $Request_ID";  
  $result = mysqli_query($conn, $sql);  
  $fetchRow = mysqli_fetch_assoc($result);
 ?> 
@@ -72,11 +76,22 @@ form{
     font-size: 20px;
     border-radius: 5px;
   }
+  textarea:focus, input:focus{
+    outline: none;
+}
+  input:focus {
+    outline: none !important;
+}
 .rform input[type=text] {
   width: 30%;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border-width:0px;
+border:none;
+outline:none;
+ /* border: 0px none;
+  outline: none;*/
+  /*border: 1px solid #ccc;
+  border-radius: 4px;*/
   resize: vertical;
   background-color: white;
 }
@@ -91,11 +106,11 @@ form{
 .surat{
 	margin-left: 300px;
   margin-right: 300px;
-  text-align: center;
+  /*text-align: center;*/
   background-color: white;
 }
-img{
-
+.preview, .preview2{
+  margin-left: 200px;
 }
 
 </style>
@@ -116,28 +131,33 @@ img{
 <br>
 
 <div class="surat"><br>
-	<img src="polis.png" style="height: 200px; width: 200px;">
-	<h2 style="text-align: center; font-size: 30px; font-family: times new roman;">Surat Kebenaran Rentas Negeri</h2>
+	<img src="polis.png" style="height: 200px; width: 200px; margin-left: 270px;">
+	<h2 style="text-align: center; font-size: 30px; font-family: times new roman;">Surat Kebenaran Rentas Negeri</h2><br>
 
-	<form action="" method="post">
-		<h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Peribadi</h2><br>
-		NAME: <input type="text" name="name" value="<?php echo $fetchRow['Fullname']  ?>" required><br>
-		IDENTITY NUMBER: <input type="text" name="id" value="<?php echo $fetchRow['Identity_No']  ?>" required><br>
-		ADDRESS: <input type="text" name="add" value="<?php echo $fetchRow['Address']  ?>" required><br>
-		PHONE NUMBER: <input type="text" name="phone" value="<?php echo $fetchRow['Phone_Number']  ?>" required><br>
-		NATIONALITY: <input type="text" name="nat" value="<?php echo $fetchRow['Nationality']  ?>" required><br>
-		IDENTITY TYPE: <input type="text" name="idtype" value="<?php echo $fetchRow['Identity_Type']  ?>" required><br><br>
+<h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Peribadi</h2><br>
+  <div class="preview" style="font-size: 20px">
+        
 
-		<h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Permohonan</h2><br>
+        <strong>NAME           :</strong>           <?php echo $fetchRow['Fullname'];?><br><br>
+        <strong>IDENTITY NUMBER:      </strong><?php echo $fetchRow['Identity_No'];?></h3><br><br>
+        <strong>ADDRESS        :      </strong><?php echo $fetchRow['Address'];?><br><br>
+        <strong>PHONE NUMBER   :      </strong>RM<?php echo $fetchRow['Phone_Number'];?><br><br>
+        <strong>NATIONALITY    :      </strong><?php echo $fetchRow['Nationality'];?></p>
+        <strong>IDENTITY TYPE  :      </strong><?php echo $fetchRow['Identity_Type'];?></p>
+        </div>
+<br>
+<h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Permohonan</h2><br>
+  <div class="preview2" style="font-size: 20px">
 
-	VEHICLE REGISTRATION NUMBER: <input type="text" name="title" value="<?php echo $fetchRow['Vehicle_Req_No']?>" required><br>
-	DEPARTURE DATE: <input type="date" name="dep" value="<?php echo $fetchRow['Departure_Date']?>" required><br>
-	ARRIVAL DATE: <input type="date" name="arr" value="<?php echo $fetchRow['Arrival_Date']?>" required><br>
-	REQUEST DATE: <input type="date" name="re" value="<?php echo $fetchRow['Request_Date']?>" required><br>
-	REASON: <input type="date" name="rea" value="<?php echo $fetchRow['Reason']?>" required><br>
-	STATUS: <input type="text" name="status" value="<?php echo $fetchRow['Request_Status']?>" required><br>
-	</form>
-</div>
+    <strong>VEHICLE NUMBER: </strong><?php echo $fetchRow['Vehicle_Req_No'];?><br><br>
+        <strong>DEPARTURE DATE:      </strong><?php echo $fetchRow['Departure_Date'];?></h3><br><br>
+        <strong>ARRIVAL DATE        :      </strong><?php echo $fetchRow['Arrival_Date'];?><br><br>
+        <strong>REQUEST DATE   :      </strong><?php echo $fetchRow['Request_Date'];?><br><br>
+        <strong>REASON    :      </strong><?php echo $fetchRow['Reason'];?></p>
+        <strong>STATUS  :      </strong><?php echo $fetchRow['Request_Status'];?></p><br>
+        </div>
+    
+  </div>
 
 </body>
 </html>
