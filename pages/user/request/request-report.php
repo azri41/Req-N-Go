@@ -117,14 +117,15 @@ outline:none;
 </head>
 <body style="background-color: #5e80a1 ">
 <ul>
-<li><img src="Logo.png" alt="Logo.png" style="width:50px;height:50px; position: absolute;
-  object-fit: scale-down; "></li>
+  <a href="../../../index.php"><img src="../../../img/logo.png"></a>
+<!-- <li><img src="Logo.png" alt="Logo.png" style="width:50px;height:50px; position: absolute;
+  object-fit: scale-down; "></li> -->
 <div class="navRight">
-  <li><a href="#home">HEALTH STATUS</a></li>
-  <li ><a href="#request">REQUEST</a></li>
-  <li style="background-color: beige;"><a href="#status">STATUS</a></li>
-  <li><a href="#profile">PROFILE</a></li>
-  <li><a href="#about">ABOUT US</a></li>
+  <li><a href="../health/form.php">HEALTH STATUS</a></li>
+  <li ><a href="request-main.php">REQUEST</a></li>
+  <li style="background-color: white;"><a href="#status">STATUS</a></li>
+  <li><a href="../profile/Profile.php">PROFILE</a></li>
+  <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
 </div>
 </ul>
 <p style="background-color: #394d60; color: #394d60; margin-top: 0px;">lol</p>
