@@ -27,41 +27,31 @@ $Request_ID = $_GET['Request_ID']
 <head>
 	<title>Request report</title>
 		<style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid #e7e7e7;
-  background-color: #CFD3D6;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: #666;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #ddd;
-}
-/*img {
-  position: absolute;
-  object-fit: scale-down;
-}*/
-/*li a.active {
-  color: white;
-  background-color: #4CAF50;
-}*/
-.navRight {
-  float: right;
-}
+        ul{
+            list-style-type: none;
+            background-color: #CFD3D6;
+            margin: 0;
+        }   
+        li{
+            margin-top: 20px;
+            float: left;
+        }
+        li a{
+            font-family: open sans;
+            font-size: 24px;
+            font-weight: 600;         
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover:not(.active){
+          color: white;
+        }
+        .navRight {
+            float: right;
+        }
 form{
   margin: auto;
 }
@@ -115,7 +105,7 @@ outline:none;
 
 </style>
 </head>
-<body style="background-color: #5e80a1 ">
+<body style="background-color: #6E8A9E ">
 <ul>
   <a href="../../../index.php"><img src="../../../img/logo.png"></a>
 <!-- <li><img src="Logo.png" alt="Logo.png" style="width:50px;height:50px; position: absolute;
@@ -123,16 +113,16 @@ outline:none;
 <div class="navRight">
   <li><a href="../health/form.php">HEALTH STATUS</a></li>
   <li ><a href="request-main.php">REQUEST</a></li>
-  <li style="background-color: white;"><a href="#status">STATUS</a></li>
+  <li style="color: white;"><a href="#status">STATUS</a></li>
   <li><a href="../profile/Profile.php">PROFILE</a></li>
   <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
 </div>
 </ul>
-<p style="background-color: #394d60; color: #394d60; margin-top: 0px;">lol</p>
+<p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
 
 <div class="surat"><br>
-	<img src="polis.png" style="height: 200px; width: 200px; margin-left: 270px;">
+	<img src="../../../img/polis.png" style="height: 200px; width: 200px; margin-left: 550px;">
 	<h2 style="text-align: center; font-size: 30px; font-family: times new roman;">Surat Kebenaran Rentas Negeri</h2><br>
 
 <h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Peribadi</h2><br>
@@ -142,7 +132,7 @@ outline:none;
         <strong>NAME           :</strong>           <?php echo $fetchRow['Fullname'];?><br><br>
         <strong>IDENTITY NUMBER:      </strong><?php echo $fetchRow['Identity_No'];?></h3><br><br>
         <strong>ADDRESS        :      </strong><?php echo $fetchRow['Address'];?><br><br>
-        <strong>PHONE NUMBER   :      </strong>RM<?php echo $fetchRow['Phone_Number'];?><br><br>
+        <strong>PHONE NUMBER   :      </strong><?php echo $fetchRow['Phone_Number'];?><br><br>
         <strong>NATIONALITY    :      </strong><?php echo $fetchRow['Nationality'];?></p>
         <strong>IDENTITY TYPE  :      </strong><?php echo $fetchRow['Identity_Type'];?></p>
         </div>
