@@ -7,8 +7,10 @@
 </html>
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+// $username = "root";
+// $password = "";
+$username = "admin";
+$password = "123"; //utk azri lul
 $database = "reqngo";
 $conn = new mysqli($servername, $username, $password, $database);	//connect database
 
