@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript">
+            function dragStart(ev) {
+             ev.dataTransfer.effectAllowed='move';
+             ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+             ev.dataTransfer.setDragImage(ev.target,0,0);
+             return true;
+            }
+            function dragEnter(ev) {
+             event.preventDefault();
+             return true;
+            }
+            function dragOver(ev) {
+             return false;
+            }
+            function dragDrop(ev) {
+             var src = ev.dataTransfer.getData("Text");
+             ev.target.appendChild(document.getElementById(src));
+             ev.stopPropagation();
+             return false;
+            }
+            </script>
+    </head>
+    <body onload="animate();">
+        <div id="sidebar">
+            <div class="toggle-btn" onclick="toggleSidebar()"><a>
+            <span></span>
+               <span></span>
+               <span></span>
+              </a>
+              </div>
+              <ul>
+               <li><a class="button" href="index.html" style = >HOME</a></li>
+              </ul>
+              <ul>
+               <li><a class="button" href="videos.html" style = >VIDEOS</a></li>
+              </ul>
+              <ul>
+               <li><a class="button" href="travel.html" style = >TRAVEL</a></li>
+              </ul>
+              <ul>
+               <li><a class="button" href="meme.html" style= >MEME</a></li>
+              </ul>
+             </div>
+             <script src="animation.js"></script>
+             
+             <div id="canvas" draggable="true">
+                 <script src="canvas.js"></script>
+                <canvas id="mycanvas" width="400" height="400"></canvas>
+             </div>
+
+             <div id="star" draggable="true">
+                <svg id="svgelem" height="200" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="100,10 40,180 190,60 10,60 160,180" fill="red"/>
+                </svg>
+             </div>
+             <div id="box" ondragenter="return dragEnter(event)"
+             ondrop="return dragDrop(event)"
+             ondragover="return dragOver(event)">
+                 Select Meme
+             </div>
+             
+    </body>
+</html>
