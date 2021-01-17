@@ -26,6 +26,7 @@ $Request_ID = $_GET['Request_ID']
 <html>
 <head>
 	<title>Request report</title>
+  <link rel="stylesheet" type="text/css" href="../../../style/style.css">
 		<style>
         ul{
             list-style-type: none;
@@ -113,14 +114,14 @@ outline:none;
 <div class="navRight">
   <li><a href="../health/form.php">HEALTH STATUS</a></li>
   <li ><a href="request-main.php">REQUEST</a></li>
-  <li style="color: white;"><a href="#status">STATUS</a></li>
+  <li style="color: white;"><a href="request-status.php">STATUS</a></li>
   <li><a href="../profile/Profile.php">PROFILE</a></li>
   <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
 </div>
 </ul>
 <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
-
+<button onclick="window.print()">Print letter</button>
 <div class="surat"><br>
 	<img src="../../../img/polis.png" style="height: 200px; width: 200px; margin-left: 550px;">
 	<h2 style="text-align: center; font-size: 30px; font-family: times new roman;">Surat Kebenaran Rentas Negeri</h2><br>
@@ -129,22 +130,22 @@ outline:none;
   <div class="preview" style="font-size: 20px">
         
 
-        <strong>NAME           :</strong>           <?php echo $fetchRow['Fullname'];?><br><br>
-        <strong>IDENTITY NUMBER:      </strong><?php echo $fetchRow['Identity_No'];?></h3><br><br>
-        <strong>ADDRESS        :      </strong><?php echo $fetchRow['Address'];?><br><br>
-        <strong>PHONE NUMBER   :      </strong><?php echo $fetchRow['Phone_Number'];?><br><br>
-        <strong>NATIONALITY    :      </strong><?php echo $fetchRow['Nationality'];?></p>
-        <strong>IDENTITY TYPE  :      </strong><?php echo $fetchRow['Identity_Type'];?></p>
+        <strong>NAMA           :</strong>           <?php echo $fetchRow['Fullname'];?><br><br>
+        <strong>NOMBOR KAD PENGENALAN:      </strong><?php echo $fetchRow['Identity_No'];?></h3><br><br>
+        <strong>ALAMAT        :      </strong><?php echo $fetchRow['Address'];?><br><br>
+        <strong>NOMBOR TELEFON   :      </strong><?php echo $fetchRow['Phone_Number'];?><br><br>
+        <strong>WARGANEGARA    :      </strong><?php echo $fetchRow['Nationality'];?></p>
+        <strong>JENIS ID  :      </strong><?php echo $fetchRow['Identity_Type'];?></p>
         </div>
 <br>
 <h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Permohonan</h2><br>
   <div class="preview2" style="font-size: 20px">
 
-    <strong>VEHICLE NUMBER: </strong><?php echo $fetchRow['Vehicle_Req_No'];?><br><br>
-        <strong>DEPARTURE DATE:      </strong><?php echo $fetchRow['Departure_Date'];?></h3><br><br>
-        <strong>ARRIVAL DATE        :      </strong><?php echo $fetchRow['Arrival_Date'];?><br><br>
-        <strong>REQUEST DATE   :      </strong><?php echo $fetchRow['Request_Date'];?><br><br>
-        <strong>REASON    :      </strong><?php echo $fetchRow['Reason'];?></p>
+    <strong>NOMBOR KENDERAAN: </strong><?php echo $fetchRow['Vehicle_Req_No'];?><br><br>
+        <strong>TARIKH BERTOLAK:      </strong><?php echo $fetchRow['Departure_Date'];?></h3><br><br>
+        <strong>TARIKH SAMPAI        :      </strong><?php echo $fetchRow['Arrival_Date'];?><br><br>
+        <strong>TARIKH PERMOHONAN   :      </strong><?php echo $fetchRow['Request_Date'];?><br><br>
+        <strong>SEBAB PERMOHONAN    :      </strong><?php echo $fetchRow['Reason'];?></p>
         <strong>STATUS  :      </strong><?php echo $fetchRow['Request_Status'];?></p><br>
         </div>
     

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Request Status Page</title>
+	<link rel="stylesheet" type="text/css" href="../../../style/style.css">
 		<style>
         ul{
             list-style-type: none;
@@ -100,7 +101,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 				<td><?php echo $row['Request_Date'];?></td>
 				<td><?php echo $row['Request_Status'];?></td>
 				<td><?php echo $row['Mode_Of_Transportation'];?></td>
-				<td><a href="request-report.php?Request_ID=<?php echo $row["Request_ID"]; ?>">Print</a></td>
+				<td><button><a href="request-report.php?Request_ID=<?php echo $row["Request_ID"]; ?>">Print</a></button></td>
 				<?php
 
 				echo "</tr>";
