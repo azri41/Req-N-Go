@@ -1,3 +1,21 @@
+<?php 
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "reqngo";
+ 
+$conn = mysqli_connect('localhost', 'root', '', 'reqngo');
+if(!$conn)
+{
+  die("Connection failed: " . mysqli_connect_error());
+}
+ 
+?>
+<?php 
+ $sql = "SELECT * FROM user INNER JOIN request ON user.Identity_No = request.Identity_No";  
+ $result = mysqli_query($conn, $sql);  
+ $fetchRow = mysqli_fetch_assoc($result);
+?> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,20 +72,25 @@
 
 <div class="rform">
 
-	<form method="post" action="addreq.php" enctype="multipart/form-data">
+	<form method="post" action="addreq.php" >
     <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br>
 		
 		1. Vehicle Registration No.: <input type="text" name="Vehicle_Req_No" required>
   		
     2. Mode of Transport: <input type="text" name="Mode_Of_Transportation" required>
+    
   	 
-    3. Identity Number: <input type="text" name="Identity_No" required>
+    3. Identity Number: <?php echo $fetchRow['Identity_No'];?><br><br><br>
      
     4. Departure Date: <input type="Date" name="Departure_Date" required>	      
   
     5. Arrival Date: <input type="Date" name="Arrival_Date" required>
   	
   	6. Reason: <input type="text" name="Reason" required>
+
+    7. FormID: <input type="text" name="Form_Id" required>
+
+    8. StaffID: <input type="text" name="Staff_Id" required="">
      
      <button class="button" type="submit" onClick="myConfirm()">Submit</button>
 </form>
