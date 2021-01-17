@@ -1,16 +1,18 @@
+<!-- Database Connection -->
 <?php 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "reqngo";
+  $host = "localhost";
+  $user = "root";
+  $pass = "";
+  $db = "reqngo";
  
-$conn = mysqli_connect('localhost', 'root', '', 'reqngo');
-if(!$conn)
-{
-  die("Connection failed: " . mysqli_connect_error());
-}
- 
+  $conn = mysqli_connect('localhost', 'root', '', 'reqngo');
+  if(!$conn)
+  {
+    die("Connection failed: " . mysqli_connect_error());
+  }
 ?>
+
+<!-- To get Identity number and form Id so user cannot edit in form -->
 <?php 
  $sql = "SELECT * FROM user INNER JOIN request ON user.Identity_No = request.Identity_No";  
  $result = mysqli_query($conn, $sql);  
@@ -22,16 +24,21 @@ if(!$conn)
  $results = mysqli_query($conn, $mysql);  
  $fetchRows = mysqli_fetch_assoc($results);
 ?> 
+
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Request form page</title>
   <link rel="stylesheet" type="text/css" href="../../../style/style.css">
+
+ <!--  When user clicks button submit form -->
   <script type="text/javascript">
-     function myConfirm(){
+     function myConfirm()
+     {
           var answer = window.confirm("Thank you for your submission. We will process your letter soon.");
      }
-     </script>
+    </script>
 
 	<style>
         ul{
@@ -78,7 +85,7 @@ if(!$conn)
 
 <div class="rform">
 
-	<form method="post" action="addreq.php" enctype="multipart/form-data" >
+	<form method="post" action="addreq.php">
     <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br>
 		
 		1. Vehicle Registration No.: <input type="text" name="Vehicle_Req_No" required>
@@ -99,6 +106,8 @@ if(!$conn)
      <button class="button" type="submit" onClick="myConfirm()">Submit</button>
 </form>
 </div>
+
+<!-- chatbot -->
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger
     intent="WELCOME"

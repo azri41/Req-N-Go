@@ -30,28 +30,34 @@
             float: right;
         }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
+		table 
+		{
+  			border-collapse: collapse;
+  			width: 100%;
+		}
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
+		th, td 
+		{
+  			text-align: left;
+  			padding: 8px;
+		}
 
-tr:nth-child(even) {background-color: #f2f2f2;}
-		h1{
-  font-family: monospace;
-  font-size: 50px;
-  margin: 1px;
-}
+		tr:nth-child(even) 
+		{
+			background-color: #f2f2f2;
+		}
+
+		h1
+		{
+  			font-family: monospace;
+  			font-size: 50px;
+  			margin: 1px;
+		}
 </style>
 </head>
 <body style="background-color: #6E8A9E ">
 <ul>
 	<a href="../../../index.php"><img src="../../../img/logo.png"></a>
-<!-- <li><img src="Logo.png" alt="Logo.png" style="width:50px;height:50px;"></li> -->
 <div class="navRight">
   <li><a href="../health/form.php">HEALTH STATUS</a></li>
   <li><a href="request-main.php">REQUEST</a></li>
