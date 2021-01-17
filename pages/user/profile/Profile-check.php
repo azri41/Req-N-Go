@@ -1,6 +1,13 @@
 <?php 
 session_start(); 
-include "db_conn.php";
+require "config.php"
+
+$Identity_No = $_SESSION["Identity_No"];
+
+$fetch_profile = "SELECT p.Fullname, p.Address,p.Email, p.Phone_Number,p.Nationality,p.State,p.Area, p.Poscode FROM user p WHERE p.Identity_No = '$Identity_No'";
+
+$profile = mysqli_query($conn,$fetch_profile);
+$user_profile = mysqli_fetch_assoc($profile);
 
 if(isset($_POST['update'])){
     print "You pressed Button 3";
