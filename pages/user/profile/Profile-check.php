@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-require "config.php"
+require "config.php";
 
 $Identity_No = $_SESSION["Identity_No"];
 
