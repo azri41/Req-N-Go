@@ -7,12 +7,12 @@
 </html>
 <?php
 $servername = "localhost";
-// $username = "root";
-// $password = "";
-$username = "admin";
-$password = "123"; //utk azri lul
+$username = "root";
+$password = "";
+// $username = "admin";
+// $password = "123"; //utk azri lul
 $database = "reqngo";
-$conn = new mysqli($servername, $username, $password, $database);	//connect database
+$conn = mysqli_connect($servername, $username, $password, $database);	//connect database
 
 if ($conn->connect_error) {
 
@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 	echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
 	die("Connection failed: " . $conn->connect_error);	//die = exit , . utk joined
 } else {
-	echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
-	echo "<script type='text/javascript'>toastr.success('Database Connected!')</script>";
+	// echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
+	// echo "<script type='text/javascript'>toastr.success('Database Connected!')</script>";
 }	
 //require once file.php call file

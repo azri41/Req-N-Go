@@ -47,19 +47,19 @@ session_start();
     </div>
 
     <div id="login">
-        <h3>Login</h3>
+        <h3>Admin Login</h3>
     </div>
     <div class="login-form">
-        <form name="loginForm" method="post" action="auth_includes/login_inc.php" onsubmit="return validateForm()">
+        <form name="loginForm" method="post" action="auth_includes/login_admin_inc.php" onsubmit="return validateForm()">
             <div class="input-group">
-                <label>Email</label>
-                <input type="text" name="email">
+                <label>Staff Id</label>
+                <input type="text" name="staff_id">
             </div>
             <div class="input-group">
                 <label>Password</label>
                 <input type="password" name="pwd">
             </div>
-            <input id="login-button" name="login-button" type="submit" value="Login">
+            <input id="login-button" name="submit" type="submit" value="Login">
         </form>
     </div>
     <!-- <div id="login-button">

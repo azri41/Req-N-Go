@@ -1,6 +1,5 @@
 <?php
 require "config.php";
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +41,8 @@ session_start();
                     echo '<button><a href="pages/auth/login.php">Logout</a></button>';
                 } else {
                     echo '<button class="auth"><a href="pages/auth/login.php">Login</a></button>
-                        <button class="auth"><a href="pages/auth/register.php">Register</a></button>';
+                        <button class="auth"><a href="pages/auth/register.php">Register</a></button>
+                        <button class="auth"><a href="pages/auth/login_admin.php">Admin</a></button>';
                 }
 
                 ?>
@@ -86,12 +86,7 @@ session_start();
 
     </main>
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-    intent="WELCOME"
-    chat-title="Borderz"
-    agent-id="3784ef82-a873-40d8-aaa3-3a0a07de9806"
-    language-code="en"
-    ></df-messenger>
+    <df-messenger intent="WELCOME" chat-title="Borderz" agent-id="3784ef82-a873-40d8-aaa3-3a0a07de9806" language-code="en"></df-messenger>
 </body>
 
 
