@@ -78,7 +78,7 @@ if(!$conn)
 
 <div class="rform">
 
-	<form method="post" action="addreq.php" >
+	<form method="post" action="addreq.php" enctype="multipart/form-data" >
     <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br>
 		
 		1. Vehicle Registration No.: <input type="text" name="Vehicle_Req_No" required>
@@ -95,8 +95,6 @@ if(!$conn)
   	6. Reason: <input type="text" name="Reason" required>
 
     7. FormID: <?php echo $fetchRow['Form_Id'];?><br><br><br>
-
-    8. StaffID: <input type="text" name="Staff_Id" required>
      
      <button class="button" type="submit" onClick="myConfirm()">Submit</button>
 </form>

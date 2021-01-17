@@ -123,7 +123,7 @@ outline:none;
 <br>
 <button onclick="window.print()">Print letter</button>
 <div class="surat"><br>
-	<img src="../../../img/polis.png" style="height: 200px; width: 200px; margin-left: 550px;">
+	<img src="../../../img/polis.png" style="height: 200px; width: 200px; margin-left: auto; margin-right: auto; display: block;">
 	<h2 style="text-align: center; font-size: 30px; font-family: times new roman;">Surat Kebenaran Rentas Negeri</h2><br>
 
 <h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Peribadi</h2><br>
