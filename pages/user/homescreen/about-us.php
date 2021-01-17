@@ -26,6 +26,50 @@
         .navRight {
             float: right;
         }
+        .team-section{
+            overflow: hidden;
+            text-align:center;
+            padding: 60px; 
+        }
+        .team-section h1{
+            text-transform: uppercase;
+            margin-bottom:60px;
+            color:black;
+            font-size:40px;
+        }
+        .inner-width{
+            max-width: 1200px;
+            margin:auto;
+            padding: 40px;
+            overflow: hidden;
+        }
+        .border{
+            display: block;
+            margin:auto;
+            width: 160px;
+            height:3px;
+            background: #394d60;
+            margin-bottom: 60px;
+        }
+        .ps a{
+            display: inline-block;
+            margin : 0 40px;
+            width:200px;
+            height:200px;
+            overflow:hidden;
+            border-radius:70%;
+        }
+        .ps a img{
+            width:100%;
+            filter:grayscale(50%);
+        }
+        .ps a:hover > img{
+            filter:none;
+        }
+        .pe{
+            float: left;
+            width:calc(100%/5);
+        }
 
     </style>
 </head>
@@ -52,6 +96,30 @@
             <th style="width:60%; border: 5px solid #99A3A4;text-align:justify;padding: 20px; font-family:monaco; font-size: 30px;opacity: 0.7 ;border-radius: 25px;"><h1>How We Work</h1>Before making any request from our Req N Go, your need to become a member by filling in your details first and creating an account. All informati given to us are kept as private and confidential. Also, members are required to declare their health status before requesting for crossing the border form. Request to cross the border must be done at least 3 days before the date. It takes around 2-4 days to process your request, either it is approve or otherwise.<br><th>
         </tr>
     </table>
+
+    <div class="team-section" >
+        <div class="inner-width">
+            <h1>Our Admin</h1>
+            <span class="border"></span>
+            <div class="ps">
+                <div class="pe">
+                    <a href="../../../aboutUs/Alis/alis.html" target="_blank"><img src="../../../aboutUs/Alis/alis.jpeg" alt="Alis"></a><h2>&nbsp &nbsp  &nbsp Alis</h2>
+                </div>
+                <div class="pe">
+                    <a href="../../../aboutUs/Arif/ariff.html" target="_blank"><img src="../../../aboutUs/Arif/ariff.jpg" alt="Ariff"></a><h2>&nbsp &nbsp  &nbsp Ariff</h2>
+                </div>
+                <div class="pe">
+                    <a href="../../../aboutUs/Azri/Azri Biography.html" target="_blank"><img src="../../../aboutUs/Azri/img/Gambar.jpg" alt="Azri"></a><h2>&nbsp &nbsp  &nbsp Azri</h2>
+                </div>
+                <div class="pe">
+                    <a href="../../../aboutUs/Izz/biography.html" target="_blank"><img src="../../../aboutUs/Izz/image/MyPic.jpeg" alt="Izz"></a><h2>&nbsp &nbsp  &nbsp Izz</h2>
+                </div>
+                <div class="pe">
+                    <a href="../../../aboutUs/Yiwen/mysite.html" target="_blank"><img src="../../../aboutUs/Yiwen/img/profile.jpg" alt="Yi Wen"></a><h2>&nbsp &nbsp  &nbsp Yiwen</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger
