@@ -47,7 +47,7 @@ if (isset($_POST['area']) && isset($_POST['fever']) && isset($_POST['breath']) &
         $sql = "INSERT INTO health (IsFever, IsCough, IsSore_Throat, IsDifficult_Breath, OtherSymtoms, CloseContact, IsRed_Area, Health_Status) VALUES ('$fever', '$cough', '$throat', '$breath', '$symtoms', '$contact', '$area', '$status')";
 		$result = mysqli_query($conn, $sql);
         if ($result) {
-    		header("Location: form.php?success=The form already sumbit. Thank you!");
+    		header("Location: form.php?success=The form already submit. Thank you!");
 	        exit();
         }else {
 	        header("Location: form.php?error=unknown error occurred");
