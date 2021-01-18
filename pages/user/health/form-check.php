@@ -1,6 +1,23 @@
 <?php 
 
-include "config.php";
+include "../../auth/auth_functions_inc.php";
+session_prove();
+
+    $conn = mysqli_connect('localhost', 'root', '', 'reqngo');
+    if (!$conn) 
+    {
+      die ("Connection Failed :" . mysqli_connect_error());
+    }
+
+    echo "Connected successfully";
+
+        $email = $_SESSION['email'];
+        $query = "SELECT Identity_No FROM user WHERE Email='$email'";
+        $fetch=mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($fetch))
+        {
+            $id = $row['Identity_No'];
+        }
 
 	if($_POST['fever']!='Yes')
 		$_POST['fever']='No';
@@ -44,7 +61,7 @@ if (isset($_POST['area']) && isset($_POST['fever']) && isset($_POST['breath']) &
 	    exit();
 	}
 	else{
-        $sql = "INSERT INTO health (IsFever, IsCough, IsSore_Throat, IsDifficult_Breath, OtherSymtoms, CloseContact, IsRed_Area, Health_Status) VALUES ('$fever', '$cough', '$throat', '$breath', '$symtoms', '$contact', '$area', '$status')";
+        $sql = "INSERT INTO health (IsFever, IsCough, IsSore_Throat, IsDifficult_Breath, OtherSymptoms, CloseContact, IsRed_Area, Health_Status, Identity_No) VALUES ('$fever', '$cough', '$throat', '$breath', '$symtoms', '$contact', '$area', '$status', '$id')";
 		$result = mysqli_query($conn, $sql);
         if ($result) {
     		header("Location: form.php?success=The form already submit. Thank you!");

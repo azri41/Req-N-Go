@@ -1,3 +1,17 @@
+<?php
+include "../../auth/auth_functions_inc.php";
+session_prove();
+
+$email = $_SESSION['email'];
+$query = "SELECT Identity_No FROM user WHERE email='$email'";
+$fetch=mysqli_query($conn,$query);
+while ($row = mysqli_fetch_array($fetch))
+{
+    $id = $row['Identity_No'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +64,7 @@
         </div>
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
-    <br>
+    <br>               
      <form action="form-check.php" method="post">
      	<h2>Health Status Form</h2>
      	<?php if (isset($_GET['error'])) { ?>
@@ -81,7 +95,7 @@
                <br>
                <table class="center"> 
                     <tr>
-                         <th>Symtoms</th>
+                         <th>Symptoms</th>
                          <th>Input</th>
                     </tr>
                     <tr>
