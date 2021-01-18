@@ -72,7 +72,6 @@ CREATE TABLE `request` (
   `Request_Date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `Request_Status` varchar(255) NOT NULL,
   `Form_Id` int(5) NOT NULL,
-  `Staff_Id` int(6) NOT NULL,
   `Mode_Of_Transportation` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -119,7 +118,6 @@ ALTER TABLE `request`
   ADD UNIQUE KEY `Request_Id` (`Request_Id`),
   ADD KEY `fk_foreign_key_name` (`Identity_No`),
   ADD KEY `fk_foreign_key_name1` (`Form_Id`),
-  ADD KEY `fk_foreign_key_name2` (`Staff_Id`);
 
 --
 -- Indexes for table `user`
@@ -159,7 +157,6 @@ ALTER TABLE `request`
 ALTER TABLE `request`
   ADD CONSTRAINT `fk_foreign_key_name` FOREIGN KEY (`Identity_No`) REFERENCES `user` (`Identity_No`),
   ADD CONSTRAINT `fk_foreign_key_name1` FOREIGN KEY (`Form_Id`) REFERENCES `health` (`Form_Id`),
-  ADD CONSTRAINT `fk_foreign_key_name2` FOREIGN KEY (`Staff_Id`) REFERENCES `admin` (`Staff_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
