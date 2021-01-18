@@ -1,12 +1,6 @@
 <?php 
 include "../../auth/auth_functions_inc.php";
 session_prove();
- if (!isset($_SESSION['email'])) {
-    echo "<script language='javascript'>";
-    echo "alert ('You must log in first.');";
-    echo "window.location.href='Login_Passenger.php';";
-    echo "</script>";
-  }
 $email = $_SESSION['email'];
 
 $fetch_profile = "SELECT Fullname, Address, Email, Phone_Number, Nationality, Identity_No, State FROM user WHERE Email = '$email'";
@@ -76,6 +70,7 @@ $user_profile = mysqli_fetch_assoc($profile);
             background-color: #dde7ee;
             color: black;
             border: 2px solid #5182A6;
+            margin-top: 30px;
         }
         .btn:hover {
             background-color: #87abc4;
@@ -83,77 +78,18 @@ $user_profile = mysqli_fetch_assoc($profile);
         }
         .btn1 {
             padding: 10px;
-            width: 100%;
-            width: 17%;
+            width: 70%;
             border-radius: 16px;
             background-color: #fce9e9;
             color: black;
             border: 2px solid #e96363;
-            margin-top: 50px;
+            margin-top: 30px;
         }
         .btn1:hover {
             background-color: #f2a6a6;
             color: white;
         }
     </style>
-    <script type="text/javascript">
-        function myConfirm() {
-            var answer = window.confirm("Are sure you want to update your profile data?");
-        }
-
-        function logOut() {
-            // var answer = window.confirm("Are sure you want to logout?");
-            var r = confirm('Are you sure you want to logout?');
-            if (r == true) {
-                window.location.href= "../../auth/logout.php";
-            } else {
-                window.location.href = "Profile.php";
-            }
-        }
-
-        function validateForm() {
-            var a = document.forms["profileForm"]["fullname"].value;
-            var b = document.forms["profileForm"]["email"].value;
-            var c = document.forms["profileForm"]["phone"].value;
-            var d = document.forms["profileForm"]["nationality"].value;
-            var e = document.forms["profileForm"]["idnumber"].value;
-            var f = document.forms["profileForm"]["state"].value;
-            var i = document.forms["profileForm"]["address"].value;
-
-            if (a == "" && b == "" && c == "" && d == "" && e == "" && f == ""  && i == "") {
-                alert("All fields must be filled out");
-                return false;
-            }
-            if (a == "") {
-                alert("Name must be filled out");
-                return false;
-            }
-            if (b == "") {
-                alert("Email must be filled out");
-                return false;
-            }
-            if (c == "") {
-                alert("Phone number must be filled out");
-                return false;
-            }
-            if (d == "") {
-                alert("Nationality must be filled out");
-                return false;
-            }
-            if (e == "") {
-                alert("Identity number must be filled out");
-                return false;
-            }
-            if (f == "") {
-                alert("State must be filled out");
-                return false;
-            }
-            if (i == "") {
-                alert("Address must be filled out");
-                return false;
-            }
-        }
-    </script>
 </head>
 
 <body style="background-color: #6E8A9E ">
@@ -207,12 +143,11 @@ $user_profile = mysqli_fetch_assoc($profile);
         <table style="margin-left:30%;width: 50%;">
             <tr>
                 <td><button class="btn" name='update' type="submit" onClick="myConfirm()">Update</button></td>
-                <!-- <td><button class="btn1" name='logout' onClick="logOut()">Logout</button></td> -->
+                <td><button class="btn1" name='logout' type="Logout">Logout</button></td>
             </tr>
         </table>
 
     </form>
-<center><button class="btn1" name='logout' onClick="logOut()">Logout</button></center>
 
     <br>
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -238,5 +173,9 @@ $user_profile = mysqli_fetch_assoc($profile);
         $test = "Profile have updated successfully";
         echo"<script type= 'text/javascript'>alert('$test'); location='Profile.php';</script>";
 
-}
+    }
+    if (isset($_POST['logout'])) {
+        echo "<script> location.href= '../../auth/logout.php';</script>";
+        exit;
+    }
 ?>
