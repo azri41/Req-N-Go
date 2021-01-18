@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2021 at 06:22 AM
+-- Generation Time: Jan 18, 2021 at 09:17 AM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -53,7 +53,8 @@ CREATE TABLE `health` (
   `OtherSymptoms` varchar(20) NOT NULL,
   `CloseContact` varchar(5) NOT NULL,
   `IsRed_Area` varchar(5) NOT NULL,
-  `Health_Status` varchar(10) DEFAULT NULL
+  `Health_Status` varchar(10) DEFAULT NULL,
+  `Identity_No` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -108,7 +109,8 @@ ALTER TABLE `admin`
 -- Indexes for table `health`
 --
 ALTER TABLE `health`
-  ADD PRIMARY KEY (`Form_Id`);
+  ADD PRIMARY KEY (`Form_Id`),
+  ADD KEY `Identity_No` (`Identity_No`);
 
 --
 -- Indexes for table `request`
@@ -133,23 +135,29 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `Staff_Id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Staff_Id` int(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `health`
 --
 ALTER TABLE `health`
-  MODIFY `Form_Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Form_Id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `Request_Id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Request_Id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `health`
+--
+ALTER TABLE `health`
+  ADD CONSTRAINT `Identity_No` FOREIGN KEY (`Identity_No`) REFERENCES `user` (`Identity_No`);
 
 --
 -- Constraints for table `request`
