@@ -49,34 +49,6 @@ session_prove();
   <link rel="stylesheet" type="text/css" href="../../../style/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
- <!--  When user clicks button submit form -->
-  <script type="text/javascript">
-
-     function validateForm() {
-      var vehicle = document.forms["submitForm"]["Vehicle_Req_No"].value;
-      var mode = document.forms["submitForm"]["Mode_Of_Transportation"].value;
-      var depDate = document.forms["submitForm"]["Departure_Date"].value;
-      var arrDate = document.forms["submitForm"]["Arrival_Date"].value;
-      var reason = document.forms["submitForm"]["Reason"].value;
-      var formId = document.forms["submitForm"]["Form_Id"].value;
-
-      if (formId == "") {
-          alert("There is no health status form avaliable! Please do health checking first!");
-          return false;
-      }
-      else if(depDate > arrDate)
-      {
-          alert("Error in date! Please check it again!");
-          return false;
-      }
-      else{
-          // var thisName = document.getElementById("in.name");
-          // window.alert('Thank you '+thisName.value+' for your feedback!');
-          var answer = window.confirm("Thank you for your submission. We will process your letter soon.");
-      }
-  }
-    </script>
-
 	<style>
         ul{
             list-style-type: none;
@@ -123,7 +95,7 @@ session_prove();
 <br>
 <div class="rform">
 
-	<form name="submitForm" method="post" action="addreq.php" onsubmit="return validateForm()">
+	<form name="submitForm" method="post" action="addreq.php">
     <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br>
 		
 		1. Vehicle Registration No.:<input type="text" name="Vehicle_Req_No" required>

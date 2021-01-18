@@ -25,24 +25,44 @@ session_prove();
         }
 
 
-  $mysql = "SELECT Form_Id FROM health WHERE Identity_No = '$id'";  
-  $results = mysqli_query($conn, $mysql);  
-  while ($row3 = mysqli_fetch_array($results))
-        {
-            $Form_Id = $row3['Form_Id'];
+        //Validation
+        $dep_date = $_POST['Departure_Date'];
+        echo "dep = $dep_date         ";
+        $arr_date = $_POST['Arrival_Date'];
+        echo "arr = $arr_date";
+
+        // if($dep_date > $arr_date){
+        //   echo "<script>alert('Error date! Please check it again!');</script>"; 
+        // }
+        // else{
+        //   echo "NICE!!";
+        // }
+        if($dep_date > $arr_date){
+          echo "<script>alert('Error date! Please check it again!');window.location.href='request-main.php';</script>"; 
+        }
+        else{
+          $mysql = "SELECT Form_Id FROM health WHERE Identity_No = '$id'";  
+          $results = mysqli_query($conn, $mysql);  
+          while ($row3 = mysqli_fetch_array($results))
+                {
+                    $Form_Id = $row3['Form_Id'];
+                }
+        
+              $sql = "INSERT INTO request (Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Status, Request_Date, Form_Id, Mode_Of_Transportation) 
+              VALUES('$id', '$Vehicle_Req_No', '$Departure_Date', '$Arrival_Date', '$Reason', 'Pending', now(), '$Form_Id', '$Mode_Of_Transportation')";
+        
+                   if (mysqli_query($conn, $sql)) {
+                    sleep(1);
+                    echo "<script>alert('Thank you for your submission. We will process your letter soon.');window.location.href='request-status.php';</script>"; 
+                  }
+                  else{
+                    echo "Error:" . $sql . "<br>" . mysqli_error($conn);
+                  }
+                  exit();
         }
 
-      $sql = "INSERT INTO request (Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Status, Request_Date, Form_Id, Mode_Of_Transportation) 
-      VALUES('$id', '$Vehicle_Req_No', '$Departure_Date', '$Arrival_Date', '$Reason', 'Pending', now(), '$Form_Id', '$Mode_Of_Transportation')";
+        
 
-           if (mysqli_query($conn, $sql)) {
-            sleep(1);
-            header("Location: request-status.php");
-          }
-          else{
-            echo "Error:" . $sql . "<br>" . mysqli_error($conn);
-          }
-          exit();
 
 ?>
 
