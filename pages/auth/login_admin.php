@@ -1,6 +1,7 @@
 <?php
 require "../../config.php";
-session_start();
+include "../auth/auth_functions_inc.php";
+session_prove();
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +17,8 @@ session_start();
 
     <script>
         function validateForm() {
-            var x = document.forms["loginForm"]["email"].value;
-            var y = document.forms["loginForm"]["password"].value;
+            var x = document.forms["loginForm"]["staff_email"].value;
+            var y = document.forms["loginForm"]["staff_pwd"].value;
             if (x == "" && y == "") {
                 alert("All fields must be filled out");
                 return false;
@@ -50,7 +51,7 @@ session_start();
         <h3>Admin Login</h3>
     </div>
     <div class="login-form">
-        <form name="loginForm" method="post" action="login_admin" onsubmit="return validateForm()">
+        <form name="loginForm" method="post" action="login_admin.php" onsubmit="return validateForm()">
             <div class="input-group">
                 <label>Email</label>
                 <input type="text" name="staff_email">
@@ -59,7 +60,7 @@ session_start();
                 <label>Password</label>
                 <input type="password" name="staff_pwd">
             </div>
-            <input id="login-button" name="staff_login" type="submit" value="Login">
+            <input id="login-button" name="staff-login" type="submit" value="Login">
         </form>
     </div>
     <!-- <div id="login-button">

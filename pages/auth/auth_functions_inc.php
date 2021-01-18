@@ -118,6 +118,7 @@ if (isset($_POST['login-button'])) {
 }
 
 
+
 // LOGIN USER
 function login()
 {
@@ -152,6 +153,42 @@ function login()
     }
 }
 
+if (isset($_POST['staff-login'])) {
+    staff_login();
+}
+
+function staff_login()
+{
+    global $conn, $email, $errors;
+
+    // grap form values
+    $email = e($_POST['staff_email']);
+    $password = e($_POST['staff_pwd']);
+
+    // make sure form is filled properly
+
+
+    // attempt login if no errors on form
+    if ($email && $password !== null) {
+
+
+        $query = "SELECT * FROM admin WHERE Email='$email' AND Password='$password' LIMIT 1";
+        $results = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($results) == 1) { // user found
+            // check if user is admin or user
+            $logged_in_user = mysqli_fetch_assoc($results);
+            //session start as an email
+            $_SESSION['email'] = $email;
+            $_SESSION['success']  = "You are now logged in";
+            $_SESSION["loggedin"] = true;
+            header('location: ../admin/AdminMain.php');
+        } else {
+            echo "<script type='text/javascript'>toastr.error('Wrong Email/Password!')</script>";
+            echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
+        }
+    }
+}
 // escape string
 function e($val)
 {
