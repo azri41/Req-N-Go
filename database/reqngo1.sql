@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `Staff_Id` int(6) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Fullname` varchar(30) NOT NULL,
+  `Fullname` varchar(255) NOT NULL,
   `Position` varchar(255) NOT NULL,
   `Position_Station_No` int(11) NOT NULL,
   `User_Type` varchar(255) NOT NULL DEFAULT 'Admin'
@@ -53,7 +53,7 @@ CREATE TABLE `health` (
   `OtherSymptoms` varchar(20) NOT NULL,
   `CloseContact` varchar(5) NOT NULL,
   `IsRed_Area` varchar(5) NOT NULL,
-  `Health_Status` varchar(10) DEFAULT NULL
+  `Health_Status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -68,12 +68,12 @@ CREATE TABLE `request` (
   `Vehicle_Req_No` varchar(255) NOT NULL,
   `Departure_Date` date NOT NULL,
   `Arrival_Date` date NOT NULL,
-  `Reason` varchar(100) NOT NULL,
+  `Reason` varchar(255) NOT NULL,
   `Request_Date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `Request_Status` varchar(10) NOT NULL,
+  `Request_Status` varchar(255) NOT NULL,
   `Form_Id` int(5) NOT NULL,
   `Staff_Id` int(6) NOT NULL,
-  `Mode_Of_Transportation` varchar(10) NOT NULL
+  `Mode_Of_Transportation` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -85,14 +85,14 @@ CREATE TABLE `request` (
 CREATE TABLE `user` (
   `Identity_No` int(12) NOT NULL,
   `Identity_Type` varchar(255) NOT NULL,
-  `Fullname` varchar(30) NOT NULL,
-  `Address` varchar(30) NOT NULL,
+  `Fullname` varchar(255) NOT NULL,
+  `Address` varchar(255) NOT NULL,
   `State` varchar(255) NOT NULL,
   `Nationality` varchar(255) NOT NULL,
-  `Email` varchar(15) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `Password` varchar(255) CHARACTER SET latin1 NOT NULL,
   `Phone_Number` varchar(14) NOT NULL,
-  `User_Type` varchar(256) NOT NULL DEFAULT 'Customer'
+  `User_Type` varchar(255) NOT NULL DEFAULT 'Customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
