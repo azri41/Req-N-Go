@@ -1,7 +1,6 @@
 <?php
 require "../../config.php";
 include "../auth/auth_functions_inc.php";
-session_prove();
 ?>
 
 <!DOCTYPE html>
