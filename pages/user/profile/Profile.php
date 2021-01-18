@@ -31,7 +31,7 @@
         }
         .formsheet {
             width: 1000px;
-            height: 550px;
+            height: 450px;
             padding: 30px;
             background: #fff;
             border-radius: 15px;
@@ -66,7 +66,7 @@
         }
         .btn1 {
             padding: 10px;
-            /* width: 70%; */
+            width: 100%;
             width: 17%;
             border-radius: 16px;
             background-color: #fce9e9;
@@ -101,11 +101,9 @@
             var d = document.forms["profileForm"]["nationality"].value;
             var e = document.forms["profileForm"]["idnumber"].value;
             var f = document.forms["profileForm"]["state"].value;
-            var g = document.forms["profileForm"]["area"].value;
-            var h = document.forms["profileForm"]["postalcode"].value;
             var i = document.forms["profileForm"]["address"].value;
 
-            if (a == "" && b == "" && c == "" && d == "" && e == "" && f == "" && g == "" && h == "" && i == "") {
+            if (a == "" && b == "" && c == "" && d == "" && e == "" && f == ""  && i == "") {
                 alert("All fields must be filled out");
                 return false;
             }
@@ -131,14 +129,6 @@
             }
             if (f == "") {
                 alert("State must be filled out");
-                return false;
-            }
-            if (g == "") {
-                alert("Area must be filled out");
-                return false;
-            }
-            if (h == "") {
-                alert("Postal code must be filled out");
                 return false;
             }
             if (i == "") {
@@ -192,12 +182,6 @@
                 <td class="formsize"><input class="textspace" type="text" name='state'></td>
             </tr>
             <tr>
-                <td class="attribute">Area :</td>
-                <td class="formsize"><input class="textspace" type="text" name='area'></td>
-                <td class="attribute">Postal Code :</td>
-                <td class="formsize"><input class="textspace" type="text" name='postalcode'></td>
-            </tr>
-            <tr>
                 <td class="attribute">Address :</td>
                 <td class="formsize" colspan="4"><input class="textspace" type="text" name='address'></td>
             </tr>
@@ -208,6 +192,7 @@
                 <td><button class="btn" name='update' type="submit" onClick="myConfirm()">Update</button></td>
                 <!-- <td><button class="btn1" name='logout' onClick="logOut()">Logout</button></td> -->
             </tr>
+            <tr><td><?=$_SESSION["Email"];?></td></tr>
         </table>
 
     </form>
