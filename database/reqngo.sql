@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2021 at 09:17 AM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Jan 18, 2021 at 11:42 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -83,16 +81,16 @@ CREATE TABLE `request` (
 --
 
 CREATE TABLE `user` (
-  `Identity_No` varchar(255) NOT NULL,
-  `Identity_Type` varchar(255) NOT NULL,
+  `Identity_No` varchar(50) NOT NULL,
+  `Identity_Type` varchar(50) NOT NULL,
   `Fullname` varchar(30) NOT NULL,
   `Address` varchar(30) NOT NULL,
-  `State` varchar(255) NOT NULL,
-  `Nationality` varchar(255) NOT NULL,
+  `State` varchar(50) NOT NULL,
+  `Nationality` varchar(50) NOT NULL,
   `Email` varchar(15) NOT NULL,
   `Password` varchar(255) CHARACTER SET latin1 NOT NULL,
   `Phone_Number` varchar(14) NOT NULL,
-  `User_Type` varchar(256) NOT NULL DEFAULT 'Customer'
+  `User_Type` varchar(50) NOT NULL DEFAULT 'Customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -110,7 +108,7 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `health`
   ADD PRIMARY KEY (`Form_Id`),
-  ADD KEY `Identity_No` (`Identity_No`);
+  ADD KEY `Identity_No` (`Identity_No`(191));
 
 --
 -- Indexes for table `request`
@@ -118,7 +116,7 @@ ALTER TABLE `health`
 ALTER TABLE `request`
   ADD PRIMARY KEY (`Request_Id`),
   ADD UNIQUE KEY `Request_Id` (`Request_Id`),
-  ADD KEY `fk_foreign_key_name` (`Identity_No`),
+  ADD KEY `fk_foreign_key_name` (`Identity_No`(191)),
   ADD KEY `fk_foreign_key_name1` (`Form_Id`);
 
 --
@@ -126,46 +124,6 @@ ALTER TABLE `request`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`Identity_No`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `Staff_Id` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `health`
---
-ALTER TABLE `health`
-  MODIFY `Form_Id` int(5) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `request`
---
-ALTER TABLE `request`
-  MODIFY `Request_Id` int(3) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `health`
---
-ALTER TABLE `health`
-  ADD CONSTRAINT `Identity_No` FOREIGN KEY (`Identity_No`) REFERENCES `user` (`Identity_No`);
-
---
--- Constraints for table `request`
---
-ALTER TABLE `request`
-  ADD CONSTRAINT `fk_foreign_key_name` FOREIGN KEY (`Identity_No`) REFERENCES `user` (`Identity_No`),
-  ADD CONSTRAINT `fk_foreign_key_name1` FOREIGN KEY (`Form_Id`) REFERENCES `health` (`Form_Id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
