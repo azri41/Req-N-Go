@@ -1,4 +1,7 @@
-
+<?php
+include "../../auth/auth_functions_inc.php";
+session_prove();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +70,7 @@
   <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
 </div>
 </ul>
- <h2><?=$_SESSION["Email"];?></h2><br><br>
+<!--  <h2><?=$_SESSION["email"];?></h2><br><br> -->
 <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
 <h1 style="text-align: center; font-family: helevatica; font-size: 40px;">REQUEST STATUS</h1><br>
@@ -92,7 +95,15 @@
 			die ("Connection failed: ". $conn-> connect_error);
 		}
 
-		$sql = "SELECT Request_ID, Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Date, Request_Status, Mode_Of_Transportation FROM request";
+        $email = $_SESSION['email'];
+        $query = "SELECT Identity_No FROM user WHERE email='$email'";
+        $fetch=mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($fetch))
+        {
+            $id = $row['Identity_No'];
+        }
+
+		$sql = "SELECT Request_ID, Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Date, Request_Status, Mode_Of_Transportation FROM request WHERE Identity_No = '$id'";
 		$result = $conn-> query($sql);
 
 		if ($result-> num_rows > 0)

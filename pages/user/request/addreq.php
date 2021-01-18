@@ -1,11 +1,7 @@
-<!-- <?php 
-  session_start();
-  if(!isset($_SESSION['Email'])){
-    header("Location: ../../auth/login.php");
-  }
-?>
- -->
 <?php
+
+include "../../auth/auth_functions_inc.php";
+session_prove();
     $Vehicle_Req_No = $_POST['Vehicle_Req_No'];
     $Departure_Date = $_POST['Departure_Date'];
     $Arrival_Date = $_POST['Arrival_Date'];
@@ -21,11 +17,19 @@
     echo "Connected successfully";
 
 
-  $sqli = "SELECT * FROM user INNER JOIN request ON user.Identity_No = request.Identity_No";  
-  $result = mysqli_query($conn, $sqli);  
-  while ($row2 = mysqli_fetch_array($result))
+  // $sqli = "SELECT * FROM user INNER JOIN request ON user.Identity_No = request.Identity_No";  
+  // $result = mysqli_query($conn, $sqli);  
+  // while ($row2 = mysqli_fetch_array($result))
+  //       {
+  //           $Identity_No = $row2['Identity_No'];
+  //       }
+
+        $Email = $_SESSION['Email'];
+        $query = "SELECT Identity_No FROM user WHERE Email='$Email'";
+        $fetch=mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($fetch))
         {
-            $Identity_No = $row2['Identity_No'];
+            $id = $row['Identity_No'];
         }
 
 
@@ -46,7 +50,7 @@
         // }
         // else
       $sql = "INSERT INTO request (Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Status, Request_Date, Form_Id, Mode_Of_Transportation) 
-      VALUES('$Identity_No', '$Vehicle_Req_No', '$Departure_Date', '$Arrival_Date', '$Reason', 'Pending', now(), '$Form_Id', '$Mode_Of_Transportation')";
+      VALUES('$id', '$Vehicle_Req_No', '$Departure_Date', '$Arrival_Date', '$Reason', 'Pending', now(), '$Form_Id', '$Mode_Of_Transportation')";
 
           mysqli_query($conn, $sql);
 

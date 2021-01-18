@@ -1,7 +1,8 @@
-
-
 <!-- Database Connection -->
 <?php 
+include "../../auth/auth_functions_inc.php";
+session_prove();
+
   $host = "localhost";
   $user = "root";
   $pass = "";
@@ -16,8 +17,8 @@
 
 <!-- To get Identity number and form Id so user cannot edit in form -->
 <?php 
-        $Email = $_SESSION['Email'];
-        $query = "SELECT Identity_No FROM user WHERE Email='$Email'";
+        $email = $_SESSION['email'];
+        $query = "SELECT Identity_No FROM user WHERE email='$email'";
         $fetch=mysqli_query($conn,$query);
         while ($row = mysqli_fetch_array($fetch))
         {
@@ -90,7 +91,7 @@
 </ul>
 <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
- <h2><?=$_SESSION["Email"];?></h2><br><br>
+ <h2><?=$_SESSION["email"];?></h2><br><br>
 <div class="rform">
 
 	<form method="post" action="addreq.php">
@@ -101,7 +102,7 @@
     2. Mode of Transport:<input type="text" name="Mode_Of_Transportation" required>
     
   	 
-    3. Identity Number:<?php echo $row['Identity_No'];?><br><br><br>
+    3. Identity Number:<?php echo $id;?><br><br><br>
      
     4. Departure Date: <input type="Date" name="Departure_Date" required>	      
   

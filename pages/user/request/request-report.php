@@ -1,9 +1,7 @@
-<!-- <?php 
-  session_start();
-  if(!isset($_SESSION['Email'])){
-    header("Location: ../../auth/login.php");
-  }
-?> -->
+<?php
+include "../../auth/auth_functions_inc.php";
+session_prove();
+?>
 
 <!-- Database Connection -->
 <?php 
@@ -120,7 +118,7 @@ $Request_ID = $_GET['Request_ID']
 </head>
 
 <body style="background-color: #6E8A9E ">
-   <h2><?=$_SESSION["Email"];?></h2><br><br>
+<!--    <h2><?=$_SESSION["email"];?></h2><br><br> -->
 <ul>
   <a href="../../../index.php"><img src="../../../img/logo.png"></a>
 <div class="navRight">
