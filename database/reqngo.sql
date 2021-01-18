@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2021 at 11:42 AM
+-- Generation Time: Jan 18, 2021 at 12:18 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -55,6 +55,14 @@ CREATE TABLE `health` (
   `Identity_No` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `health`
+--
+
+INSERT INTO `health` (`Form_Id`, `IsFever`, `IsCough`, `IsSore_Throat`, `IsDifficult_Breath`, `OtherSymptoms`, `CloseContact`, `IsRed_Area`, `Health_Status`, `Identity_No`) VALUES
+(1, 'yes', 'yes', 'yes', 'yes', 'no', 'no', 'no', NULL, '1234'),
+(2, 'yes', '', '', '', '', '', '', NULL, '1234');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +82,15 @@ CREATE TABLE `request` (
   `Mode_Of_Transportation` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `request`
+--
+
+INSERT INTO `request` (`Request_Id`, `Identity_No`, `Vehicle_Req_No`, `Departure_Date`, `Arrival_Date`, `Reason`, `Request_Date`, `Request_Status`, `Form_Id`, `Mode_Of_Transportation`) VALUES
+(4, '1234', 'WED2310', '2021-01-30', '2021-01-31', 'WEDDING', '2021-01-18 11:05:38', 'Pending', 0, 'MOTOR'),
+(6, '1234', 'CCR4321', '2021-01-20', '2021-01-31', 'Business purpose', '2021-01-18 11:12:19', 'Pending', 2, 'HELICOPTER'),
+(8, '1234', 'DEW4567', '2021-01-18', '2021-01-26', 'MEETING', '2021-01-18 11:14:23', 'Pending', 2, 'PLANE');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +109,13 @@ CREATE TABLE `user` (
   `Phone_Number` varchar(14) NOT NULL,
   `User_Type` varchar(50) NOT NULL DEFAULT 'Customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`Identity_No`, `Identity_Type`, `Fullname`, `Address`, `State`, `Nationality`, `Email`, `Password`, `Phone_Number`, `User_Type`) VALUES
+('1234', 'I/C', 'NUR ALIS SOPHIA BINTI SUHAIMI', 'NO. 14, LORONG 4,', 'Pahang', 'Malaysian', 'lol@example.com', '9cdfb439c7876e703e307864c9167a15', '0199659579', 'Customer');
 
 --
 -- Indexes for dumped tables
@@ -125,6 +149,15 @@ ALTER TABLE `request`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`Identity_No`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `request`
+--
+ALTER TABLE `request`
+  MODIFY `Request_Id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
