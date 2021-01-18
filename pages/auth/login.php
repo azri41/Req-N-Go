@@ -1,6 +1,6 @@
 <?php
 require "../../config.php";
-session_start();
+include "auth_functions_inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -50,14 +50,14 @@ session_start();
         <h3>Login</h3>
     </div>
     <div class="login-form">
-        <form name="loginForm" method="post" action="auth_includes/login_inc.php" onsubmit="return validateForm()">
+        <form name="loginForm" method="post" action="login.php" onsubmit="return validateForm()">
             <div class="input-group">
                 <label>Email</label>
                 <input type="text" name="email">
             </div>
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" name="pwd">
+                <input type="password" name="password">
             </div>
             <input id="login-button" name="login-button" type="submit" value="Login">
         </form>
