@@ -27,7 +27,7 @@ session_prove();
 ?> 
 
 <?php 
- $mysql = "SELECT * FROM health INNER JOIN request ON health.Form_Id = request.Form_Id";  
+ $mysql = "SELECT Form_Id FROM health WHERE Identity_No = '$id'";  
  $results = mysqli_query($conn, $mysql);  
  $fetchRows = mysqli_fetch_assoc($results);
 ?> 
@@ -91,7 +91,6 @@ session_prove();
 </ul>
 <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
- <h2><?=$_SESSION["email"];?></h2><br><br>
 <div class="rform">
 
 	<form method="post" action="addreq.php">
@@ -110,7 +109,7 @@ session_prove();
   	
   	6. Reason: <input type="text" name="Reason" required>
 
-    7. FormID: <br><?php echo $fetchRows['Form_Id'];?><br><br><br>
+    7. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br>
      
      <button class="button" type="submit" onClick="myConfirm()">Submit</button>
 </form>
