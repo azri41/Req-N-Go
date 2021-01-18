@@ -1,3 +1,20 @@
+<?php 
+include "../../auth/auth_functions_inc.php";
+session_prove();
+ if (!isset($_SESSION['email'])) {
+    echo "<script language='javascript'>";
+    echo "alert ('You must log in first.');";
+    echo "window.location.href='Login_Passenger.php';";
+    echo "</script>";
+  }
+$email = $_SESSION['email'];
+
+$fetch_profile = "SELECT Fullname, Address, Email, Phone_Number, Nationality, Identity_No, State FROM user WHERE Email = '$email'";
+
+$profile = mysqli_query($conn,$fetch_profile);
+$user_profile = mysqli_fetch_assoc($profile);
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -88,7 +105,7 @@
             // var answer = window.confirm("Are sure you want to logout?");
             var r = confirm('Are you sure you want to logout?');
             if (r == true) {
-                window.location.href= "../../../index.php";
+                window.location.href= "../../auth/logout.php";
             } else {
                 window.location.href = "Profile.php";
             }
@@ -152,8 +169,8 @@
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br><br>
-    <form name="profileForm" class="formsheet" action="Profile-check.php" method='post'> <!--onsubmit="return validateForm()"> -->
-        <h1> My Profile</h1>
+    <form name="profileForm" name="updateForm" class="formsheet" action="Profile.php" method='post'> <!--onsubmit="return validateForm()"> -->
+        <h1> My Profile </h1>
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
@@ -165,25 +182,25 @@
 
             <tr>
                 <td class="attribute">Full Name :</td>
-                <td class="formsize"><input class="textspace" type="text" name='fullname'></td>
+                <td class="formsize"><input class="textspace" type="text" name='fullname' value="<?php echo$user_profile['Fullname']; ?>"></td>
                 <td class="attribute">Email :</td>
-                <td class="formsize"><input class="textspace" type="text" name='email'></td>
+                <td class="formsize"><input class="textspace" type="text" name='email' disabled value="<?php echo$user_profile['Email']; ?>"></td>
             </tr>
             <tr>
                 <td class="attribute">Phone No. :</td>
-                <td class="formsize"><input class="textspace" type="text" name='phone'></td>
+                <td class="formsize"><input class="textspace" type="text" name='phone' value="<?php echo$user_profile['Phone_Number']; ?>"></td>
                 <td class="attribute">Nationality :</td>
-                <td class="formsize"><input class="textspace" type="text" name='nationality'></td>
+                <td class="formsize"><input class="textspace" type="text" name='nationality' disabled value="<?php echo$user_profile['Nationality']; ?>"></td>
             </tr>
             <tr>
                 <td class="attribute">IC / Passport No. :</td>
-                <td class="formsize"><input class="textspace" type="text" name='idnumber'></td>
+                <td class="formsize"><input class="textspace" type="text" name='idnumber' value="<?php echo$user_profile['Identity_No']; ?>"></td>
                 <td class="attribute">State :</td>
-                <td class="formsize"><input class="textspace" type="text" name='state'></td>
+                <td class="formsize"><input class="textspace" type="text" name='state'value="<?php echo$user_profile['State']; ?>"></td>
             </tr>
             <tr>
                 <td class="attribute">Address :</td>
-                <td class="formsize" colspan="4"><input class="textspace" type="text" name='address'></td>
+                <td class="formsize" colspan="4"><input class="textspace" type="text" name='address' value="<?php echo$user_profile['Address']; ?>"></td>
             </tr>
         </table>
 
@@ -192,7 +209,6 @@
                 <td><button class="btn" name='update' type="submit" onClick="myConfirm()">Update</button></td>
                 <!-- <td><button class="btn1" name='logout' onClick="logOut()">Logout</button></td> -->
             </tr>
-            <tr><td><?=$_SESSION["Email"];?></td></tr>
         </table>
 
     </form>
@@ -207,5 +223,20 @@
     language-code="en"
     ></df-messenger>
 </body>
-
 </html>
+
+<?php
+    if(isset($_POST['update'])){
+        $user_name=$_POST['fullname'];
+        $user_PhoneNo=$_POST['phone'];
+        $user_IDnumber=$_POST['idnumber'];
+        $user_State=$_POST['state'];
+        $user_Address=$_POST['address'];
+
+
+        $query = mysqli_query ($conn,"UPDATE user SET Fullname='$user_name', Phone_Number= '$user_PhoneNo', Identity_No='$user_IDnumber', State='$user_State', Address='$user_Address' WHERE Email = '$email' ");
+        $test = "Profile have updated successfully";
+        echo"<script type= 'text/javascript'>alert('$test'); location='Profile.php';</script>";
+
+}
+?>
