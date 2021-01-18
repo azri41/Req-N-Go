@@ -25,7 +25,6 @@ session_prove();
         }
 
 
-
   $mysql = "SELECT Form_Id FROM health WHERE Identity_No = '$id'";  
   $results = mysqli_query($conn, $mysql);  
   while ($row3 = mysqli_fetch_array($results))

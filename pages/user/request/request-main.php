@@ -29,7 +29,16 @@ session_prove();
 <?php 
  $mysql = "SELECT Form_Id FROM health WHERE Identity_No = '$id'";  
  $results = mysqli_query($conn, $mysql);  
- $fetchRows = mysqli_fetch_assoc($results);
+ if(mysqli_num_rows($results) == 0)
+ {
+     echo "<script>alert('You need to take health test first !');window.location.href='../health/form.php';</script>"; 
+ }
+ else{
+  $fetchRows = mysqli_fetch_assoc($results);
+ }
+
+
+
 ?> 
 
 
@@ -40,36 +49,32 @@ session_prove();
   <link rel="stylesheet" type="text/css" href="../../../style/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-<!-- To disable previous date -->
-  <script>
-    $(document).ready(function(){
-      $(function(){
-        var dtToday = new Date();
-
-        var month = dtToday.getMonth()+1;
-        var day = dtToday.getDate();
-        var year = dtToday.getFullYear();
-        if(month<10)
-          month = '0' + month.toString();
-        if(day<10)
-          day = '0' + day.toString();
-
-        var maxDate = year + '-' + month + '-' + day;
-
-        $('#datee').attr('min', maxDate);
-        $('#dates').attr('min', maxDate);
-
-      });
-    })
-  </script>
-
  <!--  When user clicks button submit form -->
   <script type="text/javascript">
-     function myConfirm()
-     {
+
+     function validateForm() {
+      var vehicle = document.forms["submitForm"]["Vehicle_Req_No"].value;
+      var mode = document.forms["submitForm"]["Mode_Of_Transportation"].value;
+      var depDate = document.forms["submitForm"]["Departure_Date"].value;
+      var arrDate = document.forms["submitForm"]["Arrival_Date"].value;
+      var reason = document.forms["submitForm"]["Reason"].value;
+      var formId = document.forms["submitForm"]["Form_Id"].value;
+
+      if (formId == "") {
+          alert("There is no health status form avaliable! Please do health checking first!");
+          return false;
+      }
+      else if(depDate > arrDate)
+      {
+          alert("Error in date! Please check it again!");
+          return false;
+      }
+      else{
+          // var thisName = document.getElementById("in.name");
+          // window.alert('Thank you '+thisName.value+' for your feedback!');
           var answer = window.confirm("Thank you for your submission. We will process your letter soon.");
-     }
+      }
+  }
     </script>
 
 	<style>
@@ -118,7 +123,7 @@ session_prove();
 <br>
 <div class="rform">
 
-	<form method="post" action="addreq.php">
+	<form name="submitForm" method="post" action="addreq.php" onsubmit="return validateForm()">
     <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br>
 		
 		1. Vehicle Registration No.:<input type="text" name="Vehicle_Req_No" required>
@@ -136,7 +141,7 @@ session_prove();
 
     7. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br>
      
-     <button class="button" type="submit" onClick="myConfirm()">Submit</button>
+     <button class="button" type="submit">Submit</button>
 </form>
 </div>
 
