@@ -54,7 +54,7 @@ CREATE TABLE `health` (
   `CloseContact` varchar(5) NOT NULL,
   `IsRed_Area` varchar(5) NOT NULL,
   `Health_Status` varchar(10) DEFAULT NULL,
-  `Identity_No` int(12) NOT NULL
+  `Identity_No` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE `health` (
 
 CREATE TABLE `request` (
   `Request_Id` int(3) NOT NULL,
-  `Identity_No` int(12) NOT NULL,
+  `Identity_No` varchar(255) NOT NULL,
   `Vehicle_Req_No` varchar(255) NOT NULL,
   `Departure_Date` date NOT NULL,
   `Arrival_Date` date NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `request` (
 --
 
 CREATE TABLE `user` (
-  `Identity_No` int(12) NOT NULL,
+  `Identity_No` varchar(255) NOT NULL,
   `Identity_Type` varchar(255) NOT NULL,
   `Fullname` varchar(30) NOT NULL,
   `Address` varchar(30) NOT NULL,
