@@ -1,3 +1,5 @@
+
+
 <!-- Database Connection -->
 <?php 
   $host = "localhost";
@@ -14,9 +16,13 @@
 
 <!-- To get Identity number and form Id so user cannot edit in form -->
 <?php 
- $sql = "SELECT * FROM user INNER JOIN request ON user.Identity_No = request.Identity_No";  
- $result = mysqli_query($conn, $sql);  
- $fetchRow = mysqli_fetch_assoc($result);
+        $Email = $_SESSION['Email'];
+        $query = "SELECT Identity_No FROM user WHERE Email='$Email'";
+        $fetch=mysqli_query($conn,$query);
+        while ($row = mysqli_fetch_array($fetch))
+        {
+            $id = $row['Identity_No'];
+        }
 ?> 
 
 <?php 
@@ -69,7 +75,9 @@
   </style>
 
 </head>
+
 <body style="background-color: #6E8A9E">
+
 <ul>
 <a href="../../../index.php"><img src="../../../img/logo.png"></a>
 <div class="navRight">
@@ -82,18 +90,18 @@
 </ul>
 <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
-
+ <h2><?=$_SESSION["Email"];?></h2><br><br>
 <div class="rform">
 
 	<form method="post" action="addreq.php">
     <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br>
 		
-		1. Vehicle Registration No.: <input type="text" name="Vehicle_Req_No" required>
+		1. Vehicle Registration No.:<input type="text" name="Vehicle_Req_No" required>
   		
-    2. Mode of Transport: <input type="text" name="Mode_Of_Transportation" required>
+    2. Mode of Transport:<input type="text" name="Mode_Of_Transportation" required>
     
   	 
-    3. Identity Number: <?php echo $fetchRow['Identity_No'];?><br><br><br>
+    3. Identity Number:<?php echo $row['Identity_No'];?><br><br><br>
      
     4. Departure Date: <input type="Date" name="Departure_Date" required>	      
   
@@ -101,7 +109,7 @@
   	
   	6. Reason: <input type="text" name="Reason" required>
 
-    7. FormID: <?php echo $fetchRow['Form_Id'];?><br><br><br>
+    7. FormID: <br><?php echo $fetchRows['Form_Id'];?><br><br><br>
      
      <button class="button" type="submit" onClick="myConfirm()">Submit</button>
 </form>
