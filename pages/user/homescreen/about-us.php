@@ -105,7 +105,7 @@ session_prove();
     <img src="../../../img/Background.png" alt="Nature" style="width:100%;">
     <br><br><br>
 
-    <table style="height: 100%;">
+    <table >
         <tr>
             <th style="width:60%;text-align:justify;font-family:monaco;padding: 15px; opacity: 0.7; font-size: 30px">Req N GO is a one-click system which can be used by everyone staying in Malaysia. It is a system provided for everyone to request to cross the border while we are still under restricted movement control (RMO). It is more convenient to use during the pandemic as it is done online so people do not have to go to the police station to get the form and approval. With req’ n go, everything is done at the tip of your finger anytime and anywhere.
                 <br><br>
