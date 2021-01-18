@@ -50,16 +50,16 @@ session_start();
         <h3>Admin Login</h3>
     </div>
     <div class="login-form">
-        <form name="loginForm" method="post" action="auth_includes/login_admin_inc.php" onsubmit="return validateForm()">
+        <form name="loginForm" method="post" action="login_admin" onsubmit="return validateForm()">
             <div class="input-group">
-                <label>Staff Id</label>
-                <input type="text" name="staff_id">
+                <label>Email</label>
+                <input type="text" name="staff_email">
             </div>
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" name="pwd">
+                <input type="password" name="staff_pwd">
             </div>
-            <input id="login-button" name="submit" type="submit" value="Login">
+            <input id="login-button" name="staff_login" type="submit" value="Login">
         </form>
     </div>
     <!-- <div id="login-button">

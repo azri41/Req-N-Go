@@ -123,8 +123,7 @@ include("auth_functions_inc.php");
                             <option value="Foreigner">Foreigner</option>
                             <option value="Other">Other</option>
                     </td>
-                    <td class="attribute">State :</td>
-                    <td class="formsize"><input class="textspace" type="text" name='state'></td>
+
                 </tr>
 
 
@@ -132,6 +131,8 @@ include("auth_functions_inc.php");
                 <tr>
                     <td class="attribute">IC / Passport No. :</td>
                     <td class="formsize"><input class="textspace" type="text" name='idnumber'></td>
+                    <td class="attribute">State :</td>
+                    <td class="formsize"><input class="textspace" type="text" name='state'></td>
                 </tr>
                 <tr>
                     <td class="attribute"><label for="cars">Identification Type:</label></td>

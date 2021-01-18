@@ -48,18 +48,29 @@ if (isset($_POST['register_btn'])) {
     $phone      =   e($_POST['phone']);
     $address    =   e($_POST['address']);
     $nationality    =   e($_POST['nationality']);
+    $identityType   =   e($_POST['idtype']);
+    $state  =   e($_POST['state']);
     $pwd =  e($_POST['password']);
-    $query = "SELECT * FROM user WHERE IdentityNo='$identity_No'";
-    $result = mysqli_query($conn, $query);
-    $resultCheck = mysqli_num_rows($result);
+    if (empty($identityNo) == false && empty($email) == false && empty($fullname) == false && empty($phone) == false && empty($address) == false && empty($nationality) == false && empty($pwd) == false && empty($identityType) == false  && empty($state) == false) {
 
-    if ($resultCheck > 0) {
-        echo "<script type='text/javascript'>toastr.error('User Existed!')</script>";
-        echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
-        // exit();
+
+
+        $query = "SELECT * FROM user WHERE Identity_No='$identityNo'";
+        $result = mysqli_query($conn, $query);
+        $resultCheck = mysqli_num_rows($result);
+
+
+        if ($resultCheck > 0) {
+            echo "<script type='text/javascript'>toastr.error('User Existed!')</script>";
+            echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
+            // exit();
+        } else {
+
+            register();
+        }
     } else {
-        echo $identityNo, $email, $fullname, $phone, $address, $nationality, $pwd;
-        // register();
+        echo "<script type='text/javascript'>toastr.warning('All fields must be filled out!')</script>";
+        echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
     }
 }
 
@@ -70,178 +81,34 @@ function register()
 
     // receive all input values from the form. Call the e() function
     // defined below to escape form values
-    $username    =  e($_POST['username']);
+    $identityNo    =  e($_POST['idnumber']);
     $email       =  e($_POST['email']);
-    $name        =  e($_POST['name']);
-    $batch        =  e($_POST['batch']);
-    $phone       =  e($_POST['phone']);
-    $address     =  e($_POST['address']);
-    $category    =  e($_POST['category']);
-    $password_1  =  e($_POST['password_1']);
-    $password_2  =  e($_POST['password_2']);
-    $user_type   =  e($_POST['user_type']);
+    $fullname   =   e($_POST['fullname']);
+    $phone      =   e($_POST['phone']);
+    $address    =   e($_POST['address']);
+    $nationality    =   e($_POST['nationality']);
+    $identityType   =   e($_POST['idtype']);
+    $state  =   e($_POST['state']);
+    $pwd =  e($_POST['password']);
 
     // form validation: ensure that the form is correctly filled
-    if (empty($username)) {
-        array_push($errors, "MatricID is required");
-    }
-    if (empty($email)) {
-        array_push($errors, "Email is required");
-    }
-    if (empty($name)) {
-        array_push($errors, "Name is required");
-    }
-
-    if (empty($user_type)) {
-        array_push($errors, "Please choose the user type");
-    }
-    if (empty($category)) {
-        array_push($errors, "Please choose the category");
-    }
-    if (empty($password_1)) {
-        array_push($errors, "Password is required");
-    }
-    if ($password_1 != $password_2) {
-        array_push($errors, "The two passwords do not match");
-    }
 
 
     // register user if there are no errors in the form
-    if (count($errors) == 0) {
-        $password = md5($password_1); //encrypt the password before saving in the database
+    $passwordhashed = md5($pwd); //encrypt the password before saving in the database
 
-        if (isset($_POST['user_type'])) {
 
-            if (empty($user_type)) {
-                array_push($errors, "Please choose the user type");
-            } else {
-                $query = "INSERT INTO users (username, email, name, batch, phone, address, user_type, category, password) 
-					  VALUES('$username', '$email','$name','$batch','$phone','$address', '$user_type','$category', '$password')";
-                mysqli_query($conn, $query)  or die("Bad Query: $query");
-                $_SESSION['success']  = "New user successfully created!!";
-                // Fetching data from fee table to refrence the user on which fee type they are gonna pay gang 
-                if ($category == 'normal') {
-                    $sql = "SELECT fee_id, fee_Amount FROM fee WHERE fee_ID=? OR fee_ID=? OR fee_ID=?";
-                    $stmt = mysqli_stmt_init($conn);
-                    if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        echo 'Cannot prepare';
-                        exit();
-                    } else {
-                        $id1 = 1;
-                        $id2 = 2;
-                        $id3 = 3;
-                        mysqli_stmt_bind_param($stmt, "iii", $id1, $id2, $id3);
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_store_result($stmt);
-                        mysqli_stmt_bind_result($stmt, $fee_id, $fee_Amount);
-
-                        $query = "INSERT INTO student_fee_brdg (username, fee_ID, Balance) VALUES (?,?,?)";
-                        $stmt2 = mysqli_stmt_init($conn);
-                        if (!mysqli_stmt_prepare($stmt2, $query)) {
-                            echo 'Cannot prepare!';
-                            exit();
-                        }
-                        while (mysqli_stmt_fetch($stmt)) {
-                            $param_fee_id = $fee_id;
-                            $param_username = $username;
-                            $param_balance = $fee_Amount;
-
-                            mysqli_stmt_bind_param($stmt2, "sid", $param_username, $param_fee_id, $param_balance);
-                            mysqli_stmt_execute($stmt2);
-                            continue;
-                        }
-                    }
-
-                    if (isAdmin()) {
-                        header('location: home.php');
-                    } else {
-                        header('location: ../SFolder/staff.php');
-                    }
-                } elseif ($category == 'scholarship') {
-                    $sql = "SELECT fee_id, fee_Amount FROM fee WHERE fee_ID=? OR fee_ID=? OR fee_ID=?";
-                    $stmt = mysqli_stmt_init($conn);
-                    if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        echo 'Cannot prepare';
-                        exit();
-                    } else {
-                        $id4 = 4;
-                        $id5 = 5;
-                        $id6 = 6;
-                        mysqli_stmt_bind_param($stmt, "iii", $id4, $id5, $id6);
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_store_result($stmt);
-                        mysqli_stmt_bind_result($stmt, $fee_id, $fee_Amount);
-
-                        $query = "INSERT INTO student_fee_brdg (username, fee_ID, Balance) VALUES (?,?,?)";
-                        $stmt2 = mysqli_stmt_init($conn);
-                        if (!mysqli_stmt_prepare($stmt2, $query)) {
-                            echo 'Cannot prepare!';
-                            exit();
-                        }
-                        while (mysqli_stmt_fetch($stmt)) {
-                            $param_fee_id = $fee_id;
-                            $param_username = $username;
-                            $param_balance = $fee_Amount;
-
-                            mysqli_stmt_bind_param($stmt2, "sid", $param_username, $param_fee_id, $param_balance);
-                            mysqli_stmt_execute($stmt2);
-                            continue;
-                        }
-                    }
-
-                    if (isAdmin()) {
-                        header('location: home.php');
-                    } else {
-                        header('location: ../SFolder/staff.php');
-                    }
-                } elseif ($category == 'mara') {
-                    $sql = "SELECT fee_id, fee_Amount FROM fee WHERE fee_ID=? OR fee_ID=? OR fee_ID=?";
-                    $stmt = mysqli_stmt_init($conn);
-                    if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        echo 'Cannot prepare';
-                        exit();
-                    } else {
-                        $id7 = 7;
-                        $id8 = 8;
-                        $id9 = 9;
-                        mysqli_stmt_bind_param($stmt, "iii", $id7, $id8, $id9);
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_store_result($stmt);
-                        mysqli_stmt_bind_result($stmt, $fee_id, $fee_Amount);
-
-                        $query = "INSERT INTO student_fee_brdg (username, fee_ID, Balance) VALUES (?,?,?)";
-                        $stmt2 = mysqli_stmt_init($conn);
-                        if (!mysqli_stmt_prepare($stmt2, $query)) {
-                            echo 'Cannot prepare!';
-                            exit();
-                        }
-                        while (mysqli_stmt_fetch($stmt)) {
-                            $param_fee_id = $fee_id;
-                            $param_username = $username;
-                            $param_balance = $fee_Amount;
-
-                            mysqli_stmt_bind_param($stmt2, "sid", $param_username, $param_fee_id, $param_balance);
-                            mysqli_stmt_execute($stmt2);
-                            continue;
-                        }
-                    }
-
-                    if (isAdmin()) {
-                        header('location: home.php');
-                    } else {
-                        header('location: ../SFolder/staff.php');
-                    }
-                } else {
-                }
-
-                if (isAdmin()) {
-                    header('location: home.php');
-                } else {
-                    header('location: ../SFolder/staff.php');
-                }
-            }
-        }
+    $query = "INSERT INTO user (Identity_No, Identity_Type, Fullname, Address, State, Nationality, Email, Password, Phone_Number, User_Type) 
+                VALUES('$identityNo', '$identityType','$fullname','$address','$state','$nationality', '$email','$passwordhashed', '$phone', 'Customer')";
+    mysqli_query($conn, $query)  or die("Bad Query: $query");
+    $_SESSION['success']  = "New user successfully created!!";
+    $jan = true;
+    if ($jan == true) {
+        header('location: login.php');
     }
+    // Fetching data from fee table to refrence the user on which fee type they are gonna pay gang 
+
+
 }
 
 
@@ -266,7 +133,7 @@ function login()
     // attempt login if no errors on form
     if ($email && $password !== null) {
 
-
+        $password = md5($password);
         $query = "SELECT * FROM user WHERE email='$email' AND password='$password' LIMIT 1";
         $results = mysqli_query($conn, $query);
 
