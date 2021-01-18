@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,6 +67,7 @@
   <li><a href="../homescreen/about-us.php">ABOUT US</a></li>
 </div>
 </ul>
+ <h2><?=$_SESSION["Email"];?></h2><br><br>
 <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
 <h1 style="text-align: center; font-family: helevatica; font-size: 40px;">REQUEST STATUS</h1><br>
