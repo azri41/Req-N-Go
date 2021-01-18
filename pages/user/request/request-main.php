@@ -38,6 +38,31 @@ session_prove();
 <head>
 	<title>Request form page</title>
   <link rel="stylesheet" type="text/css" href="../../../style/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<!-- To disable previous date -->
+  <script>
+    $(document).ready(function(){
+      $(function(){
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth()+1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month<10)
+          month = '0' + month.toString();
+        if(day<10)
+          day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+
+        $('#datee').attr('min', maxDate);
+        $('#dates').attr('min', maxDate);
+
+      });
+    })
+  </script>
 
  <!--  When user clicks button submit form -->
   <script type="text/javascript">
@@ -103,9 +128,9 @@ session_prove();
   	 
     3. Identity Number:<?php echo $id;?><br><br><br>
      
-    4. Departure Date: <input type="Date" name="Departure_Date" required>	      
+    4. Departure Date: <input type="Date" name="Departure_Date" id="datee" required>	      
   
-    5. Arrival Date: <input type="Date" name="Arrival_Date" required>
+    5. Arrival Date: <input type="Date" name="Arrival_Date" id="dates" required>
   	
   	6. Reason: <input type="text" name="Reason" required>
 
