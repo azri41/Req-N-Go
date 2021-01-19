@@ -65,7 +65,7 @@ while ($row = mysqli_fetch_array($fetch))
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br>               
-     <form action="form-check.php" method="post">
+     <form class="healthform" action="form-check.php" method="post">
      	<h2>Health Status Form</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
