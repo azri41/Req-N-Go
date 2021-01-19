@@ -48,7 +48,7 @@ session_prove();
 	<title>Request form page</title>
   <link rel="stylesheet" type="text/css" href="../../../style/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
+
   <!-- To disable previous date -->
   <script>
     $(document).ready(function(){
@@ -127,15 +127,15 @@ session_prove();
     
     3. Identity Number:  <?php echo $id;?><br><br><br><br>
 
-    4. Destination :<input type="text" name="Destination" required>
+    4. Destination :<input type="text" name="Destination" required><br><br><br><br>
 
-    5. Departure Date: <input type="Date" name="Departure_Date" id="datee" required>	      
+    5. Departure Date: <input type="Date" name="Departure_Date" id="datee" required>	  <br><br> 
   
-    6. Arrival Date: <input type="Date" name="Arrival_Date" id="dates" required>
+    6. Arrival Date: <input type="Date" name="Arrival_Date" id="dates" required><br><br>
   	
-  	7. Reason: <input type="text" name="Reason" required>
+  	7. Reason: <input type="text" name="Reason" required><br><br
 
-    8. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br><br><br><br><br><br><br><br><br><br>
+    8. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br>
      
      <button class="button" type="submit">Submit</button>
 </form>

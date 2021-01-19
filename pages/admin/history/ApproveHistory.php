@@ -57,11 +57,21 @@
             margin-top: 20px;
             float: right;
         }
+        td a{
+            border-radius: 5px;
+            padding: 5px 5px;
+            text-align: center;
+            text-decoration: none;
+            background-color: rgb(70, 67, 67);
+            color: white;
+            font-family: 'Franklin Gothic Medium';
+            font-size: 15px;
+        }
 </style>  
 </head>
 <body style="background-color: #6E8A9E ">
 <ul>
-    <a href="../AdminMain.php"><img src="../../../img/logo.png"></a>
+    <a href="../analysis/analysis.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
             <li><a href="../view/viewRequest.php">REQUEST</a></li>
             <li><a style="color: white" href="ApproveHistory.php">HISTORY</a></li>
@@ -88,6 +98,7 @@
                 <th class="col">Request ID</th>
                 <th class="col">Identity No</th>
                 <th class="col">Plate No</th>
+                <th class="col">Destination</th>
                 <th class="col">Form Id</th>
                 <th class="col">Request Date</th>
                 <th class="col">Departure Date</th>
@@ -119,16 +130,19 @@ if(isset($_POST["search"])){
     $result = $conn->query($sql);
 }
 while($row = $result->fetch_assoc()) { ; ?>
+<tr>
         <td><a class="button" href="../view/view-detail.php?reqId=<?php echo $row["Request_Id"]; ?>"><?php echo $row["Request_Id"]; ?></a></td>
         <td><?php echo $row["Identity_No"]; ?> </td>
         <td><?php echo $row["Vehicle_Req_No"]; ?></td>
-        <td><?php echo $row["Form_Id"]; ?></td>
+        <td><?php echo $row['Destination'];?></td>
+        <td><a class="button" href="../view/view-form.php?formId=<?php echo $row["Form_Id"]; ?>"><?php echo $row["Form_Id"]; ?></a></td>
         <td><?php echo $row["Request_Date"]; ?></td>
         <td><?php echo $row["Departure_Date"]; ?></td>
         <td><?php echo $row["Arrival_Date"]; ?></td>
         <td><?php echo $row["Mode_Of_Transportation"]; ?></td>
         <td><?php echo $row["Reason"]; ?></td>
         <td><?php echo $row["Request_Status"]; ?></td>
+</tr>
 <?php }
 echo "</table>";
 

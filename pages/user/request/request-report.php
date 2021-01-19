@@ -153,6 +153,7 @@ $Request_ID = $_GET['Request_ID']
   <div class="preview2" style="font-size: 20px">
 
         <strong>NOMBOR KENDERAAN: </strong><?php echo $fetchRow['Vehicle_Req_No'];?><br><br>
+        <strong>DESTINASI: </strong><?php echo $fetchRow['Destination'];?><br><br>
         <strong>TARIKH BERTOLAK: </strong><?php echo $fetchRow['Departure_Date'];?></h3><br><br>
         <strong>TARIKH SAMPAI: </strong><?php echo $fetchRow['Arrival_Date'];?><br><br>
         <strong>TARIKH PERMOHONAN: </strong><?php echo $fetchRow['Request_Date'];?><br><br>

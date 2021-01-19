@@ -12,8 +12,9 @@
 	$Kelantan = $Kedah = $Melaka = $NS = $Pahang = $PP = $Perlis = $Perak = $Sabah = $Sarawak = $Selangor = $Terengganu = $KL = $Johor = $Put = $Lab= 0;
 
 
-	$sql = "SELECT State FROM user WHERE Identity_No=(SELECT Identity_No FROM request WHERE Request_Status='Approved') ";
-	$result = $conn->query($sql);
+	$sql = "SELECT State FROM user WHERE Identity_No IN (SELECT Identity_No FROM request WHERE Request_Status='Approved') ";
+	mysqli_query($conn, $sql) or die ("Bad Query: $sql");
+	$result = mysqli_query($conn, $sql);
 	while($row = $result->fetch_assoc()) {
 		$state=$row["State"];
 
@@ -28,7 +29,7 @@
 		}
 		else if($state == "Negeri Sembilan"){
 			$NS++;
-		}
+		} //Ariff is h
 		else if($state == "Pahang"){
 			$Pahang++;
 		}
@@ -89,7 +90,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	axisY2:{
 		interlacedColor: "rgba(1,77,101,.2)",
 		gridColor: "rgba(1,77,101,.1)",
-
+		title: "Origin State"
 	},
 	data: [{
 		type: "bar",
@@ -166,7 +167,7 @@ chart.render();
 		h1{
         	font-family: monospace;
         	margin: 1px;
-        	font-size: 64px;
+        	font-size: 50px;
         	text-align: left;
         	margin-top: 10px;
         }
@@ -174,7 +175,7 @@ chart.render();
 </head>
 <body style="background-color: #6E8A9E ">
 <ul>
-    <a href="../AdminMain.php"><img src="../../../img/logo.png"></a>
+    <a href="analysis.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
             <li><a href="../view/viewRequest.php">REQUEST</a></li>
             <li><a href="../history/ApproveHistory.php">HISTORY</a></li>
@@ -185,7 +186,7 @@ chart.render();
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br>  
 <body>
-	<div><h1>Welcome , admin <?php echo$admin_profile['Fullname']; ?> !</h1></div>
+	<div><h1>Welcome, <?php echo$admin_profile['Fullname']; ?> !</h1></div><br><br><br><br><br><br>
 	<div id="chartContainer" style="height: 370px; width: 100%;">
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	</div>

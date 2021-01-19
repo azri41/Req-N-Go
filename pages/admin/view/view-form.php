@@ -67,12 +67,6 @@ $Form_ID = $_GET['formId']
 
 
 
-        .surat
-        {
-	        margin-left: 100px;
-          margin-right: 100px;
-          background-color: white;
-        }
         .preview, .preview2
         {
           margin-left: 200px;
@@ -85,9 +79,9 @@ $Form_ID = $_GET['formId']
 
 <body style="background-color: #6E8A9E ">
 <ul>
-    <a href="../AdminMain.php"><img src="../../../img/logo.png"></a>
+    <a href="../analysis/analysis.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
-            <li><a style="color: white" href="viewRequest.php">REQUEST</a></li>
+            <li><a href="viewRequest.php">REQUEST</a></li>
             <li><a href="../history/ApproveHistory.php">HISTORY</a></li>
             <li><a href="../analysis/analysis.php">ANALYSIS</a></li>
             <li><a href="../../auth/logout.php">LOGOUT</a></li>
@@ -96,11 +90,11 @@ $Form_ID = $_GET['formId']
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br> 
 
-<div class="surat"><br>
-<p>Form ID: <?php echo $fetchRow["Form_Id"];?></p>
+<br>
+
 <form action="form-check.php" method="post">
      	<h2>Health Status Details</h2>
-
+          <p>Form ID: <?php echo $fetchRow["Form_Id"];?></p>
           <label>1. Have you been to see any area or countries of COVID-19 as indicated by WHO over the past 14 days?</label><br><br>
                <table class="center">
                     <tr>
@@ -110,7 +104,7 @@ $Form_ID = $_GET['formId']
                          <td><?php echo $fetchRow["IsRed_Area"]; ?></td>
                     </tr>
                </table>
-          <br>
+          <br><br>
           <label>2. Have you had any of the following symptoms over the past 14 days?</label><br>
                <br>
                <table class="center"> 
@@ -134,10 +128,10 @@ $Form_ID = $_GET['formId']
                          <td><?php echo $fetchRow["IsSore_Throat"]; ?></td>
                     </tr>
                </table>
-               <br>
-               <label>Other symptoms = </label>
-               <td><?php echo $fetchRow["OtherSymptoms"]; ?></td>
-                <br>    <br>    
+               <br><br>
+               <label>Other symptoms : </label>
+               <td><strong><?php echo $fetchRow["OtherSymptoms"]; ?></strong></td>
+                <br><br><br><br>  
                <label>3. Have you been in close contact with person suspected to have COVID-19?</label><br><br>
                <table class="center">
                     <tr>
@@ -146,7 +140,7 @@ $Form_ID = $_GET['formId']
                     <tr>
                         <td><?php echo $fetchRow["CloseContact"]; ?></td>
                     </tr>
-               </table>
+               </table>          <br><br>
                <label>4. Verdict</label><br><br>
                <table class="center">
                     <tr>
@@ -159,9 +153,8 @@ $Form_ID = $_GET['formId']
 
      </form>
     
-  </div>
   <div class="printbutton">
-  <button onclick="window.print()">Print letter</button>
+  <button onclick="window.print()">Print</button>
   </div>
   <br><br><br>   
 

@@ -84,7 +84,7 @@ $Request_ID = $_GET['reqId']
 <ul>
     <a href="../AdminMain.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
-            <li><a style="color: white" href="viewRequest.php">REQUEST</a></li>
+            <li><a href="viewRequest.php">REQUEST</a></li>
             <li><a href="../history/ApproveHistory.php">HISTORY</a></li>
             <li><a href="../analysis/analysis.php">ANALYSIS</a></li>
             <li><a href="../../auth/logout.php">LOGOUT</a></li>
@@ -116,6 +116,7 @@ $Request_ID = $_GET['reqId']
   <div class="preview2" style="font-size: 20px">
 
         <strong>NOMBOR KENDERAAN: </strong><?php echo $fetchRow['Vehicle_Req_No'];?><br><br>
+        <strong>DESTINASI: </strong><?php echo $fetchRow['Destination'];?><br><br>
         <strong>TARIKH BERTOLAK: </strong><?php echo $fetchRow['Departure_Date'];?></h3><br><br>
         <strong>TARIKH SAMPAI: </strong><?php echo $fetchRow['Arrival_Date'];?><br><br>
         <strong>TARIKH PERMOHONAN: </strong><?php echo $fetchRow['Request_Date'];?><br><br>
