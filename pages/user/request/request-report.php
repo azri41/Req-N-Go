@@ -118,7 +118,6 @@ $Request_ID = $_GET['Request_ID']
 </head>
 
 <body style="background-color: #6E8A9E ">
-<!--    <h2><?=$_SESSION["email"];?></h2><br><br> -->
 <ul>
   <a href="../../../index.php"><img src="../../../img/logo.png"></a>
 <div class="navRight">
@@ -134,7 +133,7 @@ $Request_ID = $_GET['Request_ID']
 <button onclick="window.print()">Print letter</button>
 <div class="surat"><br>
 	<img src="../../../img/polis.png" style="height: 200px; width: 200px; margin-left: auto; margin-right: auto; display: block;">
-	<h2 style="text-align: center; font-size: 30px; font-family: times new roman;">Surat Kebenaran Rentas Negeri</h2><br>
+	<h2 style="text-align: center; font-size: 30px; font-family: times new roman;">Surat Kebenaran Rentas Negeri</h2>
 
 <h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Peribadi</h2><br>
   <div class="preview" style="font-size: 20px">

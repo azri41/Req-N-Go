@@ -93,16 +93,17 @@ session_prove();
 </ul>
 <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
 <br>
+<h1 style="text-align: center; font-family: helevatica; font-size: 40px;">REQUEST FORM</h1><br>
 <div class="rform">
 
 	<form name="submitForm" method="post" action="addreq.php">
-    <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br>
+    <!-- <h1 style="text-align: center; color: black;">REQUEST FORM</h1><br> -->
 		
 		1. Vehicle Registration No.:<input type="text" name="Vehicle_Req_No" required>
   		
     2. Mode of Transport:<input type="text" name="Mode_Of_Transportation" required>
     
-    3. Identity Number:  <?php echo $id;?><br><br><br>
+    3. Identity Number:  <?php echo $id;?><br><br><br><br>
 
     4. Destination :<input type="text" name="Destination" required>
 
@@ -112,7 +113,7 @@ session_prove();
   	
   	7. Reason: <input type="text" name="Reason" required>
 
-    8. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br>
+    8. FormID:<?php echo $fetchRows['Form_Id'];?>
      
      <button class="button" type="submit">Submit</button>
 </form>
