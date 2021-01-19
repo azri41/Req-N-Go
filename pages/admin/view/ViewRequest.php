@@ -47,24 +47,26 @@
 		{
 			background-color: #f2f2f2;
 		}
-
-		h1
-		{
-  			font-family: monospace;
-  			font-size: 50px;
-  			margin: 1px;
-		}
+        h2
+        {
+            font-family: monospace;
+            font-size: 40px;
+            margin: 1px;
+        }
+        .searchButton{
+            margin-top: 20px;
+            float: right;
+        }
 </style>   
 </head>
 <body style="background-color: #6E8A9E ">
 <ul>
     <a href="../AdminMain.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
-            <li><a href="../AdminMain.php">HOME</a></li>
             <li><a style="color: white" href="viewRequest.php">REQUEST</a></li>
             <li><a href="../history/ApproveHistory.php">HISTORY</a></li>
             <li><a href="../analysis/analysis.php">ANALYSIS</a></li>
-            <button><a href="../../auth/logout.php">Logout</a></button>
+            <li><a href="../../auth/logout.php">LOGOUT</a></li>
         </div>
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
@@ -74,9 +76,9 @@
             <table class="searchcontainer">
                 <tr class="searchcontainer">
                     <th class="searchcontainerrequest"><h2>Request</h2></th>
-                    <th class="searchcontainer"><input type="text" name="searchvalue" placeholder="Search Request ID"></th>
-                    <th class="searchcontainer"><input type="submit" name="search" value="Search"></th>
-                    <th class="searchcontainer"><input type="submit" name="showall" value="Show All"></th>
+                    <th class="searchButton"><input type="submit" name="showall" value="Show All"></th>
+                    <th class="searchButton"><input type="submit" name="search" value="Search"></th>
+                    <th class="searchButton"><input type="text" name="searchvalue" placeholder="Search Request ID"></th>
                 </tr>
             </table>
             

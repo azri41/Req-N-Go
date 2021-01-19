@@ -3,6 +3,11 @@
 	// Check if the user is logged in, if not then redirect him to login page
 	session_prove();
 	$email = $_SESSION['email'];
+	$fetch_profile = "SELECT Fullname FROM admin WHERE Email = '$email'";
+
+	$profile = mysqli_query($conn,$fetch_profile);
+	$admin_profile = mysqli_fetch_assoc($profile);
+
 	$state = "";
 	$Kelantan = $Kedah = $Melaka = $NS = $Pahang = $PP = $Perlis = $Perak = $Sabah = $Sarawak = $Selangor = $Terengganu = $KL = $Johor = $Put = $Lab= 0;
 
@@ -158,30 +163,31 @@ chart.render();
 		{
 			background-color: #f2f2f2;
 		}
-
-		h1
-		{
-  			font-family: monospace;
-  			font-size: 50px;
-  			margin: 1px;
-		}
+		h1{
+        	font-family: monospace;
+        	margin: 1px;
+        	font-size: 64px;
+        	text-align: left;
+        	margin-top: 10px;
+        }
 </style> 
 </head>
 <body style="background-color: #6E8A9E ">
 <ul>
     <a href="../AdminMain.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
-            <li><a href="../AdminMain.php">HOME</a></li>
             <li><a href="../view/viewRequest.php">REQUEST</a></li>
             <li><a href="../history/ApproveHistory.php">HISTORY</a></li>
             <li><a style="color: white" href="analysis.php">ANALYSIS</a></li>
-            <button><a href="../../auth/logout.php">Logout</a></button>
+            <li><a href="../../auth/logout.php">LOGOUT</a></li>
         </div>
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br>  
 <body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<div><h1>Welcome , admin <?php echo$admin_profile['Fullname']; ?> !</h1></div>
+	<div id="chartContainer" style="height: 370px; width: 100%;">
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	</div>
 </body>
 </html>

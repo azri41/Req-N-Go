@@ -182,7 +182,7 @@ function staff_login()
             $_SESSION['email'] = $email;
             $_SESSION['success']  = "You are now logged in";
             $_SESSION["loggedin"] = true;
-            header('location: ../admin/AdminMain.php');
+            header('location: ../admin/analysis/analysis.php');
         } else {
             echo "<script type='text/javascript'>toastr.error('Wrong Email/Password!')</script>";
             echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";

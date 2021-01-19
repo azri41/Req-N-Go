@@ -69,13 +69,16 @@ $Form_ID = $_GET['formId']
 
         .surat
         {
-	         margin-left: 100px;
+	        margin-left: 100px;
           margin-right: 100px;
           background-color: white;
         }
         .preview, .preview2
         {
           margin-left: 200px;
+        }
+        .printbutton{
+          margin-right: 90px;
         }
 </style>
 </head>
@@ -84,16 +87,14 @@ $Form_ID = $_GET['formId']
 <ul>
     <a href="../AdminMain.php"><img src="../../../img/logo.png"></a>
         <div class="navRight">
-            <li><a href="../AdminMain.php">HOME</a></li>
             <li><a style="color: white" href="viewRequest.php">REQUEST</a></li>
             <li><a href="../history/ApproveHistory.php">HISTORY</a></li>
             <li><a href="../analysis/analysis.php">ANALYSIS</a></li>
-            <button><a href="../../auth/logout.php">Logout</a></button>
+            <li><a href="../../auth/logout.php">LOGOUT</a></li>
         </div>
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
-    <br>   
-<button onclick="window.print()">Print letter</button>
+    <br> 
 
 <div class="surat"><br>
 <p>Form ID: <?php echo $fetchRow["Form_Id"];?></p>
@@ -159,6 +160,10 @@ $Form_ID = $_GET['formId']
      </form>
     
   </div>
+  <div class="printbutton">
+  <button onclick="window.print()">Print letter</button>
+  </div>
+  <br><br><br>   
 
 </body>
 </html>
