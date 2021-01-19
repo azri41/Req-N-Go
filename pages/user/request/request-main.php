@@ -48,7 +48,29 @@ session_prove();
 	<title>Request form page</title>
   <link rel="stylesheet" type="text/css" href="../../../style/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <!-- To disable previous date -->
+  <script>
+    $(document).ready(function(){
+      $(function(){
+        var dtToday = new Date();
 
+        var month = dtToday.getMonth()+1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month<10)
+          month = '0' + month.toString();
+        if(day<10)
+          day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+
+        $('#datee').attr('min', maxDate);
+        $('#dates').attr('min', maxDate);
+
+      });
+    })
+  </script>
 	<style>
         ul{
             list-style-type: none;
@@ -113,7 +135,7 @@ session_prove();
   	
   	7. Reason: <input type="text" name="Reason" required>
 
-    8. FormID:<?php echo $fetchRows['Form_Id'];?>
+    8. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br><br><br><br><br><br><br><br><br><br>
      
      <button class="button" type="submit">Submit</button>
 </form>
