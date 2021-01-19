@@ -131,11 +131,30 @@ include("auth_functions_inc.php");
                 <tr>
                     <td class="attribute">IC / Passport No. :</td>
                     <td class="formsize"><input class="textspace" type="text" name='idnumber'></td>
-                    <td class="attribute">State :</td>
-                    <td class="formsize"><input class="textspace" type="text" name='state'></td>
+                    <td class="attribute"><label for="idtype">State:</label></td>
+                    <td class="formsize"> <select name="state" id="state">
+                            <option value="">Please Select an option...</option>
+                            <option value="Kelantan">Kelantan</option>
+                            <option value="Kedah">Kedah</option>
+                            <option value="Melaka">Melaka</option>
+                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                            <option value="Pahang">Pahang</option>
+                            <option value="Pulau Pinang">Pulau Pinang</option>
+                            <option value="Perak">Perak</option>
+                            <option value="Perlis">Perlis</option>
+                            <option value="Sabah">Sabah</option>
+                            <option value="Sarawak">Sarawak</option>
+                            <option value="Selangor">Selangor</option>
+                            <option value="Terengganu">Terengganu</option>
+                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                            <option value="Putrajaya">Putrajaya</option>
+                            <option value="Labuan">Labuan</option>
+                    </td>
+                    <!-- <td class="attribute">State :</td>
+                    <td class="formsize"><input class="textspace" type="text" name='state'></td> -->
                 </tr>
                 <tr>
-                    <td class="attribute"><label for="cars">Identification Type:</label></td>
+                    <td class="attribute"><label for="idtype">Identification Type:</label></td>
                     <td class="formsize"> <select name="idtype" id="idtype">
                             <option value="">Please Select an option...</option>
                             <option value="I/C">I/C</option>

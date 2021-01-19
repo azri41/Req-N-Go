@@ -64,7 +64,7 @@ require "config.php";
                             header("location:pages/homescreen/about-us.php.php");
                             exit;
                         } elseif ($_SESSION["usertype"] === 'Admin') {
-                            header("location: AdminMain.php");
+                            header("location: pages/admin/AdminMain.php");
                             exit;
                         }
                     }

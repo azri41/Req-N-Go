@@ -62,7 +62,7 @@ if (isset($_POST['area']) && isset($_POST['fever']) && isset($_POST['breath']) &
 	}
 	else{
         $sql = "INSERT INTO health (IsFever, IsCough, IsSore_Throat, IsDifficult_Breath, OtherSymptoms, CloseContact, IsRed_Area, Health_Status, Identity_No) VALUES ('$fever', '$cough', '$throat', '$breath', '$symtoms', '$contact', '$area', '$status', '$id')";
-		$result = mysqli_query($conn, $sql);
+		$result = mysqli_query($conn, $sql) or die ("Bad Query: $sql");
         if ($result) {
     		header("Location: form.php?success=The form already submit. Thank you!");
 	        exit();

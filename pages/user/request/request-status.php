@@ -79,6 +79,7 @@ session_prove();
 			<th>Request ID</th>
 			<th>Identity No</th>
 			<th>Vehicle No</th>
+			<th>Destination</th>
 			<th>Departure Date</th>
 			<th>Arrival Date</th>
 			<th>Reason</th>
@@ -103,7 +104,7 @@ session_prove();
             $id = $row['Identity_No'];
         }
 
-		$sql = "SELECT Request_ID, Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Date, Request_Status, Mode_Of_Transportation FROM request WHERE Identity_No = '$id'";
+		$sql = "SELECT Request_ID, Identity_No, Vehicle_Req_No, Destination, Departure_Date, Arrival_Date, Reason, Request_Date, Request_Status, Mode_Of_Transportation FROM request WHERE Identity_No = '$id'";
 		$result = $conn-> query($sql);
 
 		if ($result-> num_rows > 0)
@@ -114,6 +115,7 @@ session_prove();
 				<td><?php echo $row['Request_ID'];?></td>
 				<td><?php echo $row['Identity_No'];?></td>
 				<td><?php echo $row['Vehicle_Req_No'];?></td>
+				<td><?php echo $row['Destination'];?></td>
 				<td><?php echo $row['Departure_Date'];?></td>
 				<td><?php echo $row['Arrival_Date'];?></td>
 				<td><?php echo $row['Reason'];?></td>

@@ -7,6 +7,7 @@ session_prove();
     $Arrival_Date = $_POST['Arrival_Date'];
     $Reason = $_POST['Reason'];
     $Mode_Of_Transportation = $_POST['Mode_Of_Transportation'];
+    $Destination = $_POST['Destination'];
 
     $conn = mysqli_connect('localhost', 'root', '', 'reqngo');
     if (!$conn) 
@@ -48,8 +49,8 @@ session_prove();
                     $Form_Id = $row3['Form_Id'];
                 }
         
-              $sql = "INSERT INTO request (Identity_No, Vehicle_Req_No, Departure_Date, Arrival_Date, Reason, Request_Status, Request_Date, Form_Id, Mode_Of_Transportation) 
-              VALUES('$id', '$Vehicle_Req_No', '$Departure_Date', '$Arrival_Date', '$Reason', 'Pending', now(), '$Form_Id', '$Mode_Of_Transportation')";
+              $sql = "INSERT INTO request (Identity_No, Vehicle_Req_No, Destination, Departure_Date, Arrival_Date, Reason, Request_Status, Request_Date, Form_Id, Mode_Of_Transportation) 
+              VALUES('$id', '$Vehicle_Req_No', '$Destination', '$Departure_Date', '$Arrival_Date', '$Reason', 'Pending', now(), '$Form_Id', '$Mode_Of_Transportation')";
         
                    if (mysqli_query($conn, $sql)) {
                     sleep(1);

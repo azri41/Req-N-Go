@@ -102,16 +102,17 @@ session_prove();
   		
     2. Mode of Transport:<input type="text" name="Mode_Of_Transportation" required>
     
-  	 
-    3. Identity Number:<?php echo $id;?><br><br><br>
-     
-    4. Departure Date: <input type="Date" name="Departure_Date" id="datee" required>	      
-  
-    5. Arrival Date: <input type="Date" name="Arrival_Date" id="dates" required>
-  	
-  	6. Reason: <input type="text" name="Reason" required>
+    3. Identity Number:  <?php echo $id;?><br><br><br>
 
-    7. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br>
+    4. Destination :<input type="text" name="Destination" required>
+
+    5. Departure Date: <input type="Date" name="Departure_Date" id="datee" required>	      
+  
+    6. Arrival Date: <input type="Date" name="Arrival_Date" id="dates" required>
+  	
+  	7. Reason: <input type="text" name="Reason" required>
+
+    8. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br>
      
      <button class="button" type="submit">Submit</button>
 </form>
