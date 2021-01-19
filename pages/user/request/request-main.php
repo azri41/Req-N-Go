@@ -133,7 +133,7 @@ session_prove();
   
     6. Arrival Date: <input type="Date" name="Arrival_Date" id="dates" required><br><br>
   	
-  	7. Reason: <input type="text" name="Reason" required><br><br
+  	7. Reason: <input type="text" name="Reason" required><br><br>
 
     8. FormID:<?php echo $fetchRows['Form_Id'];?><br><br><br>
      

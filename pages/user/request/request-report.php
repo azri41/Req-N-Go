@@ -138,8 +138,8 @@ $Request_ID = $_GET['Request_ID']
 <h2 style="text-align: center; font size: 25px; font-family: times new roman;">Maklumat Peribadi</h2><br>
   <div class="preview" style="font-size: 20px">
         
-
-        <strong>NAMA: </strong><?php echo $fetchRow['Fullname'];?><br><br>
+        <!-- Display all details from request table based on their request id -->
+        <strong>NAMA: </strong><?php echo $fetchRow['Fullname'];?><br><br> 
         <strong>NOMBOR KAD PENGENALAN: </strong><?php echo $fetchRow['Identity_No'];?></h3><br><br>
         <strong>ALAMAT: </strong><?php echo $fetchRow['Address'];?><br><br>
         <strong>NOMBOR TELEFON: </strong><?php echo $fetchRow['Phone_Number'];?><br><br>

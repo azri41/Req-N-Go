@@ -62,9 +62,7 @@ include "auth_functions_inc.php";
             <input id="login-button" name="login-button" type="submit" value="Login">
         </form>
     </div>
-    <!-- <div id="login-button">
-        <label id="label-login">Login</label>
-    </div> -->
+
 
 </body>
 

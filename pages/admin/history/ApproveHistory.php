@@ -119,11 +119,11 @@ $email = $_SESSION['email'];
 if(isset($_POST["search"])){
     $search =$_POST["searchvalue"];
 
-    $sql = "SELECT * FROM request WHERE Request_Status='Approved' AND Request_Id='".$search."'";
+    $sql = "SELECT * FROM request WHERE Request_Status='Approved' AND Request_Id='".$search."'"; //select all from request table if the request status is approved and based on request id
     $result = $conn->query($sql);
 
 }else if(isset($_POST["showall"])){
-    $sql = "SELECT * FROM request WHERE Request_Status='Approved' or 'approved'";
+    $sql = "SELECT * FROM request WHERE Request_Status='Approved' or 'approved'"; //select alll from request table if request status is approved
     $result = $conn->query($sql);
 }else{
     $sql = "SELECT * FROM request WHERE Request_Status='Approved'";

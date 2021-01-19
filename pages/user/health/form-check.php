@@ -2,7 +2,7 @@
 
 include "../../auth/auth_functions_inc.php";
 session_prove();
-
+	//check database connection
     $conn = mysqli_connect('localhost', 'root', '', 'reqngo');
     if (!$conn) 
     {
@@ -19,6 +19,7 @@ session_prove();
             $id = $row['Identity_No'];
         }
 
+	//set variable value
 	if($_POST['fever']!='Yes')
 		$_POST['fever']='No';
 	if($_POST['breath']!='Yes')
@@ -46,12 +47,13 @@ if (isset($_POST['area']) && isset($_POST['fever']) && isset($_POST['breath']) &
 	$contact = validate($_POST['contact']);
 
 
+	//to set status value
 	if($fever=='Yes' || $breath=='Yes' || $cough=='Yes' || $throat=='Yes' || $area=='Yes' || $contact=='Yes'){
 		$status='Bad';
 	}else{
 		$status='Good';
 	}
-
+	//Eror handling
 	if (empty($area)) {
 		header("Location: form.php?error1=Question No.1 is required");
 	    exit();
@@ -61,6 +63,7 @@ if (isset($_POST['area']) && isset($_POST['fever']) && isset($_POST['breath']) &
 	    exit();
 	}
 	else{
+		//input data into database
         $sql = "INSERT INTO health (IsFever, IsCough, IsSore_Throat, IsDifficult_Breath, OtherSymptoms, CloseContact, IsRed_Area, Health_Status, Identity_No) VALUES ('$fever', '$cough', '$throat', '$breath', '$symtoms', '$contact', '$area', '$status', '$id')";
 		$result = mysqli_query($conn, $sql) or die ("Bad Query: $sql");
         if ($result) {
@@ -73,6 +76,7 @@ if (isset($_POST['area']) && isset($_POST['fever']) && isset($_POST['breath']) &
 	}
 	
 }else{
+	//Error handling
 	header("Location: form.php?error=Incomplete Input. Please answer question 1 and 3.");
 	exit();
 }

@@ -8,20 +8,15 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-// $username = "admin";
-// $password = "123"; //utk azri lul
 $database = "reqngo";
 $conn = mysqli_connect($servername, $username, $password, $database);    //connect database
 
 if ($conn->connect_error) {
-
+    // this is a toast for notifying user if there any problems with connecting with database
     echo "<script type='text/javascript'>toastr.error('Database Collapsed!')</script>";
     echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
     die("Connection failed: " . $conn->connect_error);    //die = exit , . utk joined
-} else {
-    // echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
-    // echo "<script type='text/javascript'>toastr.success('Database Connected!')</script>";
-}
+} 
 // variable declaration
 $identityNo = "";
 $identityType = "";
@@ -53,22 +48,22 @@ if (isset($_POST['register_btn'])) {
     $pwd =  e($_POST['password']);
     if (empty($identityNo) == false && empty($email) == false && empty($fullname) == false && empty($phone) == false && empty($address) == false && empty($nationality) == false && empty($pwd) == false && empty($identityType) == false  && empty($state) == false) {
 
-
-
+        // if there is no empty string in each variable, then it will invoke this sql statement
         $query = "SELECT * FROM user WHERE Identity_No='$identityNo'";
         $result = mysqli_query($conn, $query);
         $resultCheck = mysqli_num_rows($result);
 
-
+        //if there is the same email credentials exist, it will warn the user
         if ($resultCheck > 0) {
             echo "<script type='text/javascript'>toastr.error('User Existed!')</script>";
             echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
-            // exit();
+            
         } else {
 
             register();
         }
     } else {
+        // warn user if the fields are not filled if the javascript failed
         echo "<script type='text/javascript'>toastr.warning('All fields must be filled out!')</script>";
         echo "<script type='text/javascript'>toastr.options.positionClass = 'toast-bottom-right '</script>";
     }
@@ -112,7 +107,7 @@ function register()
 }
 
 
-// call the login() function if register_btn is clicked
+// call the login() function if login-button is clicked
 if (isset($_POST['login-button'])) {
     login();
 }
@@ -196,6 +191,7 @@ function e($val)
     return mysqli_real_escape_string($conn, trim($val));
 }
 
+// to check if a user's session is still active
 function session_prove()
 {
 
@@ -205,5 +201,4 @@ function session_prove()
     }
 }
 
-if (isset($_SESSION["loggedin"]) == true) {
-}
+

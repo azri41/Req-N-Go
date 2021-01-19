@@ -94,14 +94,14 @@ $Form_ID = $_GET['formId']
 
 <form action="form-check.php" method="post">
      	<h2>Health Status Details</h2>
-          <p>Form ID: <?php echo $fetchRow["Form_Id"];?></p>
+          <p>Form ID: <?php echo $fetchRow["Form_Id"];?></p> <!-- Display form id -->
           <label>1. Have you been to see any area or countries of COVID-19 as indicated by WHO over the past 14 days?</label><br><br>
                <table class="center">
                     <tr>
                          <th>Answer</th>
                     </tr>
                     <tr>
-                         <td><?php echo $fetchRow["IsRed_Area"]; ?></td>
+                         <td><?php echo $fetchRow["IsRed_Area"]; ?></td> <!-- Display value isred_area  -->
                     </tr>
                </table>
           <br><br>
@@ -113,24 +113,24 @@ $Form_ID = $_GET['formId']
                     </tr>
                     <tr>
                          <td>Fever</td>
-                         <td><?php echo $fetchRow["IsFever"]; ?></td>
+                         <td><?php echo $fetchRow["IsFever"]; ?></td> <!-- Display value isFever  -->
                     </tr>
                     <tr>
                          <td>Difficulty in breathing</td>
-                         <td><?php echo $fetchRow["IsDifficult_Breath"]; ?></td>
+                         <td><?php echo $fetchRow["IsDifficult_Breath"]; ?></td><!-- Display value IsDifficult_Breath  -->
                     </tr>
                     <tr>
                          <td>Cough</td>
-                         <td><?php echo $fetchRow["IsCough"]; ?></td>
+                         <td><?php echo $fetchRow["IsCough"]; ?></td><!-- Display value IsCough  -->
                     </tr>
                     <tr>
                          <td>Sore throat</td>
-                         <td><?php echo $fetchRow["IsSore_Throat"]; ?></td>
+                         <td><?php echo $fetchRow["IsSore_Throat"]; ?></td><!-- Display value IsSore_Throat  -->
                     </tr>
                </table>
                <br><br>
                <label>Other symptoms : </label>
-               <td><strong><?php echo $fetchRow["OtherSymptoms"]; ?></strong></td>
+               <td><strong><?php echo $fetchRow["OtherSymptoms"]; ?></strong></td><!-- Display value OtherSymptoms  -->
                 <br><br><br><br>  
                <label>3. Have you been in close contact with person suspected to have COVID-19?</label><br><br>
                <table class="center">
@@ -138,7 +138,7 @@ $Form_ID = $_GET['formId']
                          <th>Answer</th>
                     </tr>
                     <tr>
-                        <td><?php echo $fetchRow["CloseContact"]; ?></td>
+                        <td><?php echo $fetchRow["CloseContact"]; ?></td><!-- Display value CloseContact  -->
                     </tr>
                </table>          <br><br>
                <label>4. Verdict</label><br><br>
@@ -147,14 +147,14 @@ $Form_ID = $_GET['formId']
                          <th>Health Status</th>
                     </tr>
                     <tr>
-                        <td><?php echo $fetchRow["Health_Status"]; ?></td>
+                        <td><?php echo $fetchRow["Health_Status"]; ?></td><!-- Display value Health_Status  -->
                     </tr>
                </table>
 
      </form>
     
   <div class="printbutton">
-  <button onclick="window.print()">Print</button>
+  <button onclick="window.print()">Print</button> <!-- Button will print the page-->
   </div>
   <br><br><br>   
 

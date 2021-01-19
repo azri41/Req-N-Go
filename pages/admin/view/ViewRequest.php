@@ -119,13 +119,13 @@ $email = $_SESSION['email'];
 
 
 if(isset($_POST["search"])){
-    $search =$_POST["searchvalue"];
+    $search =$_POST["searchvalue"]; //will get request id from search bar
 
-    $sql = "SELECT * FROM request WHERE Request_Id='".$search."'";
+    $sql = "SELECT * FROM request WHERE Request_Id='".$search."'"; //select all based on request id in $search
     $result = $conn->query($sql);
 
 }else if(isset($_POST["showall"])){
-    $sql = "SELECT * FROM request";
+    $sql = "SELECT * FROM request"; //select all from request table
     $result = $conn->query($sql);
 }else{
     $sql = "SELECT * FROM request";
@@ -133,19 +133,19 @@ if(isset($_POST["search"])){
 }
 while($row = $result->fetch_assoc()) { ?>
     <tr>
-        <td><a class="button" href="view-detail.php?reqId=<?php echo $row["Request_Id"]; ?>"><?php echo $row["Request_Id"]; ?></a></td>
+        <td><a class="button" href="view-detail.php?reqId=<?php echo $row["Request_Id"]; ?>"><?php echo $row["Request_Id"]; ?></a></td> <!-- This button will lead to view-detail page which displaying details of the request form -->
         <td><?php echo $row["Identity_No"]; ?> </td>
         <td><?php echo $row["Vehicle_Req_No"]; ?></td>
         <td><?php echo $row['Destination'];?></td>
-        <td><a class="button" href="view-form.php?formId=<?php echo $row["Form_Id"]; ?>"><?php echo $row["Form_Id"]; ?></a></td>
+        <td><a class="button" href="view-form.php?formId=<?php echo $row["Form_Id"]; ?>"><?php echo $row["Form_Id"]; ?></a></td><!-- This button will lead to view-form page which displaying details of the health status form -->
         <td><?php echo $row["Request_Date"]; ?></td>
         <td><?php echo $row["Departure_Date"]; ?></td>
         <td><?php echo $row["Arrival_Date"]; ?></td>
         <td><?php echo $row["Mode_Of_Transportation"]; ?></td>
         <td><?php echo $row["Reason"]; ?></td>
         <td><?php echo $row["Request_Status"]; ?></td>
-        <td><?php if($row["Request_Status"] == 'Pending' ){?>
-            <a class='button' href='ViewRequest.php?reqId=<?php echo $row["Request_Id"] ?>&status=<?php echo 'Approved'?>'>Approved</a>
+        <td><?php if($row["Request_Status"] == 'Pending' ){?> <!-- if the request status is pending, it will display button to approved or rejected-->
+            <a class='button' href='ViewRequest.php?reqId=<?php echo $row["Request_Id"] ?>&status=<?php echo 'Approved'?>'>Approved</a> 
             <a name='reject' class='button' href='ViewRequest.php?reqId=<?php echo $row['Request_Id'] ?>&status=<?php echo 'Rejected'?>'>Rejected</a>
             <?php }else{
                 echo "<span>&#10003;</span>";
@@ -161,17 +161,16 @@ function filterTable($query1){
 
 }
 
-if(isset($_GET["reqId"])){
-    $reqId = $_GET["reqId"];
+if(isset($_GET["reqId"])){ //this function will get request id based on button approved or rejected
+    $reqId = $_GET["reqId"]; //assigned values to the variables
     $status = $_GET["status"];
-    $sql = "UPDATE request SET Request_Status = '$status' WHERE Request_Id='$reqId' ";
+    $sql = "UPDATE request SET Request_Status = '$status' WHERE Request_Id='$reqId' "; //update request status to assigned value based on request id
     mysqli_query($conn, $sql) or die ("Bad Query: $sql");
-    echo "<script>alert('Status updated.');window.location.href='ViewRequest.php';</script>";
-    // $result = $conn->query($sql);
+    echo "<script>alert('Status updated.');window.location.href='ViewRequest.php';</script>"; //window alert will pop out after completing this function
 }
 
 
-$conn->close();
+$conn->close(); //close connection
 ?>
             
 

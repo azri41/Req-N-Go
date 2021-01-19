@@ -5,6 +5,7 @@ session_prove();
 $email = $_SESSION['email'];
 $query = "SELECT Identity_No FROM user WHERE email='$email'";
 $fetch=mysqli_query($conn,$query);
+//to carry identity no from previous page
 while ($row = mysqli_fetch_array($fetch))
 {
     $id = $row['Identity_No'];
@@ -19,6 +20,7 @@ while ($row = mysqli_fetch_array($fetch))
 	<link rel="stylesheet" type="text/css" href="../../../style/style.css">
 
      <script type="text/javascript">
+     //to make sure all the input from user are accurate
      function myConfirm(){
           var answer = window.confirm("Please ensure all details are accurate before submitting");
      }
@@ -74,7 +76,8 @@ while ($row = mysqli_fetch_array($fetch))
           <?php if (isset($_GET['success'])) { ?>
                <p class="success"><?php echo $_GET['success']; ?></p>
           <?php } ?>
-
+               //all the question and the readiobox are in the table
+               //to easy manage the position
           <label>1. Have you been to see any area or countries of COVID-19 as indicated by WHO over the past 14 days?</label><br><br>
                <table class="center">
                     <tr>

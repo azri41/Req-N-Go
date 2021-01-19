@@ -2,24 +2,25 @@
     include "../../auth/auth_functions_inc.php";
 	// Check if the user is logged in, if not then redirect him to login page
 	session_prove();
-	$email = $_SESSION['email'];
-	$fetch_profile = "SELECT Fullname FROM admin WHERE Email = '$email'";
+	$email = $_SESSION['email']; //session start by using email
+	$fetch_profile = "SELECT Fullname FROM admin WHERE Email = '$email'"; //select name by using session email
 
 	$profile = mysqli_query($conn,$fetch_profile);
 	$admin_profile = mysqli_fetch_assoc($profile);
 
-	$state = "";
-	$Kelantan = $Kedah = $Melaka = $NS = $Pahang = $PP = $Perlis = $Perak = $Sabah = $Sarawak = $Selangor = $Terengganu = $KL = $Johor = $Put = $Lab= 0;
+	//declaring variables
+	$state = ""; //string
+	$Kelantan = $Kedah = $Melaka = $NS = $Pahang = $PP = $Perlis = $Perak = $Sabah = $Sarawak = $Selangor = $Terengganu = $KL = $Johor = $Put = $Lab= 0; //int
 
 
-	$sql = "SELECT State FROM user WHERE Identity_No IN (SELECT Identity_No FROM request WHERE Request_Status='Approved') ";
-	mysqli_query($conn, $sql) or die ("Bad Query: $sql");
+	$sql = "SELECT State FROM user WHERE Identity_No IN (SELECT Identity_No FROM request WHERE Request_Status='Approved') "; //select name of each state that request have been approved
+	mysqli_query($conn, $sql) or die ("Bad Query: $sql"); //connect to database or end the connection
 	$result = mysqli_query($conn, $sql);
-	while($row = $result->fetch_assoc()) {
+	while($row = $result->fetch_assoc()) { //fetch all state that been selected
 		$state=$row["State"];
 
-		if($state == "Kelantan"){
-			$Kelantan++;
+		if($state == "Kelantan"){ //condition if variable value equal to the name of state 
+			$Kelantan++; //increment number of user from each state
 		}
 		else if($state == "Kedah"){
 			$Kedah++;
@@ -29,7 +30,7 @@
 		}
 		else if($state == "Negeri Sembilan"){
 			$NS++;
-		} //Ariff is h
+		} 
 		else if($state == "Pahang"){
 			$Pahang++;
 		}
@@ -68,7 +69,7 @@
 		}
 	}
 
-	$conn->close();
+	$conn->close(); //close connection
 ?>
 
 <!DOCTYPE HTML>
@@ -76,29 +77,30 @@
 <head>
 <title>Analysis</title>  
 <script>
+//javascript to display a bar graph or chart
 window.onload = function () {
 	
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	
 	title:{
-		text:"Number of People Crossing State"
+		text:"Number of People Crossing State" //title of the graph
 	},
 	axisX:{
-		interval: 1
+		interval: 1 //space between each value on the graph
 	},
 	axisY2:{
-		interlacedColor: "rgba(1,77,101,.2)",
+		interlacedColor: "rgba(1,77,101,.2)", //color of graph
 		gridColor: "rgba(1,77,101,.1)",
 		title: "Origin State"
 	},
 	data: [{
 		type: "bar",
-		name: "people",
+		name: "people", 
 		axisYType: "secondary",
 		color: "#014D65",
 		dataPoints: [
-			{ y: <?php echo $Johor ?>, label: "Johor" },
+			{ y: <?php echo $Johor ?>, label: "Johor" }, //label for each y value
 			{ y: <?php echo $Kelantan ?>, label: "Kelantan" },
 			{ y: <?php echo $Kedah ?>, label: "Kedah" },
 			{ y: <?php echo $Melaka ?>, label: "Melaka" },
@@ -117,13 +119,14 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		]
 	}]
 });
-chart.render();
+chart.render(); //render the graph
 
 }
 </script>
 <style>
+/* css for this page */
         ul{
-            list-style-type: none;
+            list-style-type: none; 
             background-color: #CFD3D6;
             margin: 0;
         }   
@@ -185,10 +188,10 @@ chart.render();
     </ul>
     <p style="background-color: #465865; color: #394d60; margin-top: 0px;"><br><br></p>
     <br>  
-<body>
+<body> <!-- Display admin name-->
 	<div><h1>Welcome, <?php echo$admin_profile['Fullname']; ?> !</h1></div><br><br><br><br><br><br>
 	<div id="chartContainer" style="height: 370px; width: 100%;">
-	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> <!-- Call the script function -->
 	</div>
 </body>
 </html>
